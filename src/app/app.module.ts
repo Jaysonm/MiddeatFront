@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import {InMemoryWebApiModule} from "angular-in-memory-web-api";
+import {InMemRestaurantsService} from "./bdd/restaurants";
+import {RestoService} from "./service/resto.service";
 
 @NgModule({
   declarations: [
@@ -12,9 +15,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemRestaurantsService)
   ],
-  providers: [],
+  providers: [RestoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
