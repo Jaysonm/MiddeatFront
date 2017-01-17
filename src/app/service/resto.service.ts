@@ -1,17 +1,16 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
-import {Observable} from "rxjs";
+import 'rxjs/add/operator/map';
 import {Resto} from "../model/Resto";
-
 @Injectable()
 export class RestoService {
   private url = 'api/resto';
 
   constructor(private http : Http) { }
 
-  getAll() : Observable<any>{
+  getAll() {
     return this.http.get(this.url)
-      .map(res => res.json())
+      .map(res => res.json().data);
   }
 
 }

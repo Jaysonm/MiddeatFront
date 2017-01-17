@@ -11,7 +11,9 @@ export class AppComponent implements OnInit{
   title = 'app works!';
   restos : Array<Resto>;
 
-  constructor(private restoService : RestoService){}
+  constructor(private restoService : RestoService){
+
+  }
 
   ngOnInit() : void{
     this.restoService.getAll().subscribe(res => console.log(res));
