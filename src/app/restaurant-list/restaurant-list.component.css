@@ -1,3 +1,38 @@
-
+.restaurant {
+  background: rgba(0, 0, 0, 0.3) no-repeat center;
+  position: relative;
+  background-size: cover;
+  color: #fff;
+  padding: 10px 30px;
+  margin: 10px 0;
+  cursor: pointer; }
+  .restaurant .background-opacity {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: 'Lato', sans-serif; }
+  .restaurant .flex-resto {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2; }
+    .restaurant .flex-resto h2 {
+      font-family: 'Lato', sans-serif;
+      margin-top: 10px; }
+    .restaurant .flex-resto p {
+      font-family: 'Montserrat', sans-serif; }
+    .restaurant .flex-resto .check-in {
+      display: flex;
+      flex-direction: column;
+      color: #fff; }
+      .restaurant .flex-resto .check-in img {
+        margin-right: 30px;
+        margin-bottom: 5px; }
+      .restaurant .flex-resto .check-in img, .restaurant .flex-resto .check-in p {
+        align-self: flex-end; }
 
 /*# sourceMappingURL=restaurant-list.component.css.map */

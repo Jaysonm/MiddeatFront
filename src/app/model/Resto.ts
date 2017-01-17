@@ -3,4 +3,5 @@ export class Resto{
   public name : string ;
   public speciality : string ;
   public contact : string;
+  public eat : boolean;
 }

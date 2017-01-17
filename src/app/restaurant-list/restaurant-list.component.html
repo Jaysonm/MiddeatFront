@@ -1,4 +1,16 @@
- <div *ngFor="let resto of restaurants">
-   <h1>{{resto.name}}</h1>
- </div>
+<div class="restaurant" *ngFor="let resto of restaurants | search:searchInput" (click)="chooseOne(resto.id)"
+     [ngStyle]="{'background-image': 'url(' + getClassBySpeciality(resto) + ')'}">
+  <div class="background-opacity"></div>
+  <div class="row flex-resto">
+    <div class="col-md-4 col-sm-6 col-xs-8">
+      <h2>{{resto.name}}</h2>
+      <p> {{resto.speciality}} </p>
+    </div>
+
+    <div *ngIf="resto.eat" class="col-md-8 col-sm-6 col-xs-4 check-in">
+      <img src="app/images/valid.png"  alt="Restaurant validé" />
+      <p> Bon appétit ! </p>
+    </div>
+  </div>
+</div>
 

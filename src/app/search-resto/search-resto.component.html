@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <form class="col-md-6 searchByName">
+      <label for="search">{{ 'Cherchez votre restaurant' | uppercase}}</label>
+      <input type="text" id="search" class="form-control" name="inputText" (keyup)="changeValue($event)">
+    </form>
+
+    <form class="col-md-6 searchBySpeciality">
+      <label class="checkbox-inline" *ngFor="let speciality of specialities; let i = index">
+        <input type="checkbox" name="speciality" value="{{speciality.id}}">
+        {{speciality.name}}
+      </label>
+    </form>
+  </div>
+</div>
+
+<restaurant-list [searchInput]="searchInput"></restaurant-list>
