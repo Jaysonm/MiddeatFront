@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RestoService} from "../service/resto.service";
 import {Speciality} from "../model/Speciality";
 
@@ -10,7 +10,7 @@ import {Speciality} from "../model/Speciality";
 export class SearchRestoComponent implements OnInit {
   public searchInput : string = '';
   public specialities : Speciality[];
-  public checkSpecialities : string[];
+  public specialitiesCheck : string[];
 
   constructor(private restoService: RestoService) {
     this.restoService.getAllSpeciality().subscribe(res => this.specialities = res);
@@ -21,4 +21,9 @@ export class SearchRestoComponent implements OnInit {
   changeValue(event : any){
     this.searchInput = event.target.value;
   }
+
+  updateCheckbox(){
+    this.specialitiesCheck = this.specialities.filter(spe => spe.checked).map(spe => spe.name);
+  }
+
 }

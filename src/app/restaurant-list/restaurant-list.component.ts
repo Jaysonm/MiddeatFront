@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, OnChanges, SimpleChange} from '@angular/core';
 import {RestoService} from "../service/resto.service";
 import {Resto} from "../model/Resto";
 
@@ -11,6 +11,7 @@ export class RestaurantListComponent implements OnInit {
   private urlImage: string = 'app/images';
   public restaurants: Array<Resto>;
   @Input() searchInput : string;
+  @Input() checkboxes : string[];
 
   constructor(private restoService: RestoService) {}
 

@@ -1,4 +1,4 @@
-<div class="restaurant" *ngFor="let resto of restaurants | search:searchInput" (click)="chooseOne(resto.id)"
+<div class="restaurant" *ngFor="let resto of restaurants | search:searchInput:checkboxes" (click)="chooseOne(resto.id)"
      [ngStyle]="{'background-image': 'url(' + getClassBySpeciality(resto) + ')'}">
   <div class="background-opacity"></div>
   <div class="row flex-resto">
