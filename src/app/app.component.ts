@@ -9,11 +9,11 @@ import {Resto} from "./model/Resto";
 })
 export class AppComponent implements OnInit{
   title = 'app works!';
-  restos : Array<Resto>;
+  restos : Resto[];
 
   constructor(private restoService : RestoService){}
 
   ngOnInit() : void{
-    this.restoService.getAll().subscribe(res => console.log(res));
+    this.restoService.getAll().subscribe(res => this.restos = res);
   }
 }

@@ -1,5 +1,6 @@
 export class Resto{
-  public id : number;
+  private id : number;
   public name : string ;
   public speciality : string ;
+  public contact : string;
 }

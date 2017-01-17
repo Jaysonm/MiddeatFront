@@ -7,10 +7,13 @@ import { AppComponent } from './app.component';
 import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemRestaurantsService} from "./bdd/restaurants";
 import {RestoService} from "./service/resto.service";
+import { RestoListComponent } from './resto-list/resto-list.component';
+import 'assets/rxjs-extensions';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RestoListComponent
   ],
   imports: [
     BrowserModule,
