@@ -14,6 +14,15 @@ export class InMemRestaurantsService implements InMemoryDbService {
       { id: '9', name: 'Chez Ingalls', speciality : 'Savoyarde et grillade', position: '164 Route de Revel, 31400 Toulouse', contact : '05 62 47 14 71' },
       { id: '10', name: 'Tommy\'s Diner', speciality : 'Americain', position: 'Avenue la Méridienne, 31670 Labège', contact : '06 61 00 29 00' }
     ];
-    return {resto};
+    let specialities = [
+      { id: '1', name: 'Italien' },
+      { id: '2', name: 'Formule à volonté' },
+      { id: '3', name: 'Toulousain' },
+      { id: '4', name: 'Chaine de Restauration' },
+      { id: '5', name: 'Tout' },
+      { id: '6', name: 'Savoyarde et grillade' },
+      { id: '7', name: 'Americain' }
+    ];
+    return {resto, specialities};
   }
 }

@@ -8,11 +8,15 @@ import {InMemRestaurantsService} from "./bdd/restaurants";
 import {RestoService} from "./service/resto.service";
 import 'assets/rxjs-extensions';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
+import { SearchPipe } from './pipe/search.pipe';
+import { SearchRestoComponent } from './search-resto/search-resto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RestaurantListComponent
+    RestaurantListComponent,
+    SearchPipe,
+    SearchRestoComponent
   ],
   imports: [
     BrowserModule,
