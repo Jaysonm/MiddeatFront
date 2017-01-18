@@ -1,19 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {RestoService} from "./service/resto.service";
-import {Resto} from "./model/Resto";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'app works!';
-  restos : Resto[];
 
-  constructor(private restoService : RestoService){}
-
-  ngOnInit() : void{
-    this.restoService.getAll().subscribe(res => this.restos = res);
-  }
+  constructor(){}
 }
