@@ -1,0 +1,18 @@
+<div class="viseogroup">
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <h4> A DÉJÀ MANGÉ </h4>
+    <div class="alreadyEat" *ngFor="let person of personsAte | slice:0:3">
+      <p> {{ person.firstname }} {{ person.lastname }} </p>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <h4> CE MIDI </h4>
+    <div class="alreadyEat" *ngFor="let person of personsNoon.slice(0).reverse()">
+      <p> {{ person.firstname }} {{ person.lastname }} </p>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <h4> INSCRIPTION </h4>
+    <button (click)="signUp()"> S'inscrire </button>
+  </div>
+</div>

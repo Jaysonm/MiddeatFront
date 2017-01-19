@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {RestoService} from "../service/resto.service";
-import {Speciality} from "../model/Speciality";
+import {RestoService} from "../../service/resto.service";
+import {Speciality} from "../../model/Speciality";
 
 @Component({
   selector: 'search-resto',
-  templateUrl: './search-resto.component.html',
-  styleUrls: ['./search-resto.component.scss']
+  templateUrl: 'search-resto.component.html',
+  styleUrls: ['search-resto.component.scss']
 })
 export class SearchRestoComponent implements OnInit {
   public searchInput : string = '';
