@@ -1,8 +1,9 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {RestoService} from "../../service/resto.service";
-import {Resto} from "../../model/Resto";
+import {RestaurantService} from "../../services/restaurant.service";
+import {Restaurant} from "../../models/Restaurant";
 import {Router} from "@angular/router";
-import {SpecialityImgPipe} from "../../pipe/speciality-img.pipe";
+import {SpecialityImgPipe} from "../../pipes/speciality-img.pipe";
+import {SpinnerService} from "../../subjects/spinner.subject";
 
 @Component({
   selector: 'restaurant-list',
@@ -10,14 +11,15 @@ import {SpecialityImgPipe} from "../../pipe/speciality-img.pipe";
   styleUrls: ['restaurant-list.component.scss']
 })
 export class RestaurantListComponent implements OnInit {
-  public restaurants: Array<Resto>;
+  public restaurants: Array<Restaurant>;
   @Input() searchInput : string;
   @Input() checkboxes : string[];
 
-  constructor(private restoService: RestoService, private router: Router) {}
+  constructor(private restoService: RestaurantService, private router: Router, private spinner : SpinnerService) {}
 
   ngOnInit() {
-    this.restoService.getAll().subscribe(res => this.restaurants = res);
+    this.spinner.start();
+    this.restoService.getAll().subscribe(res => {this.restaurants = res;this.spinner.stop()});
   }
 
   chooseOne(id : number) : void{
@@ -25,7 +27,7 @@ export class RestaurantListComponent implements OnInit {
     //   restaurant.eat = false;
     // }
     // this.restaurants[id - 1].eat = true;
-    this.router.navigate(['resto/detail', id])
+    this.router.navigate(['resto', id])
   }
 
   getClassBySpeciality(speciality: string): string {

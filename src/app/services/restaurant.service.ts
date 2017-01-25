@@ -1,19 +1,19 @@
 import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
-import {Resto} from "../model/Resto";
+import {Restaurant} from "../models/Restaurant";
 import {Observable} from "rxjs";
-import {Speciality} from "../model/Speciality";
+import {Speciality} from "../models/Speciality";
 
 @Injectable()
-export class RestoService {
-  private url = 'api/resto';
+export class RestaurantService {
+  private url = 'api/restaurants';
   private urlSpe = 'api/specialities';
 
   constructor(private http : Http) { }
 
-  getAll() : Observable<Resto[]>{
+  getAll() : Observable<Restaurant[]>{
     return this.http.get(this.url)
-      .map((res : Response) => res.json().data as Resto[]);
+      .map((res : Response) => res.json().data as Restaurant[]);
   }
 
   getAllSpeciality() : Observable<Speciality[]> {
@@ -21,8 +21,8 @@ export class RestoService {
       .map(res => res.json().data as Speciality[]);
   }
 
-  getOneById(id : number) : Observable<Resto> {
+  getOneById(id : number) : Observable<Restaurant> {
     return this.http.get(`${this.url}/${id}`)
-      .map(res => res.json().data as Resto);
+      .map(res => res.json().data as Restaurant);
   }
 }

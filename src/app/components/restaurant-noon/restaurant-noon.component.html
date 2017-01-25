@@ -1,18 +1,43 @@
 <div class="viseogroup">
-  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+  <div class="alreadyEat col-lg-4 col-md-12 col-sm-12 col-xs-12">
     <h4> A DÉJÀ MANGÉ </h4>
-    <div class="alreadyEat" *ngFor="let person of personsAte | slice:0:3">
-      <p> {{ person.firstname }} {{ person.lastname }} </p>
+    <div class="blocPerson col-lg-offset-3 col-lg-6 col-md-4 col-sm-6 col-xs-6"
+         *ngFor="let person of personsAte | slice:0:3">
+      <div class="col-lg-2 col-md-12 col-sm-4 col-xs-12">
+        <img src="{{person.profil}}" alt="image de profil" />
+      </div>
+      <div class="col-lg-10 col-md-12 col-sm-8 col-xs-12">
+        <div class="showMobile">
+          <p>{{ person.firstname }} </p>
+          <p>{{ person.lastname }}</p>
+        </div>
+        <p class="hideMobile"> {{ person.firstname }} {{ person.lastname }} </p>
+        <p class="bu"> {{ person.bu}}</p>
+      </div>
     </div>
   </div>
-  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+  <div class="eatNoon col-lg-4 col-md-12 col-sm-12 col-xs-12">
     <h4> CE MIDI </h4>
-    <div class="alreadyEat" *ngFor="let person of personsNoon.slice(0).reverse()">
-      <p> {{ person.firstname }} {{ person.lastname }} </p>
+    <div class="blocPerson col-lg-offset-3 col-lg-6 col-md-4 col-sm-6 col-xs-6"
+         *ngFor="let person of personsNoon.slice(0,3).reverse()">
+      <div class="col-lg-2 col-md-12 col-sm-4 col-xs-12">
+        <img src="{{person.profil}}" alt="image de profil" />
+      </div>
+      <div class="col-lg-10 col-md-12 col-sm-8 col-xs-12">
+        <div class="showMobile">
+          <p>{{ person.firstname }} </p>
+          <p>{{ person.lastname }}</p>
+        </div>
+        <p class="hideMobile"> {{ person.firstname }} {{ person.lastname }} </p>
+        <p class="bu"> {{ person.bu}}</p>
+      </div>
     </div>
   </div>
-  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+  <div class="inscription col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <h4> INSCRIPTION </h4>
-    <button (click)="signUp()"> S'inscrire </button>
+    <button (click)="signUp()"> S'inscrire </button> <br />
+    <button (click)="signUpGrp()"> S'inscrire avec mon groupe </button>
   </div>
 </div>

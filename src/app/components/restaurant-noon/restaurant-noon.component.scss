@@ -1,11 +1,51 @@
 .viseogroup{
   background:linear-gradient(to bottom right, #00aba4, #1b3866);
   display:flex;
-  justify-content: center;
   align-items:center;
   text-align:center;
-  height:25vh;
+  padding:20px;
 
   h4{color:#fff;font-family: 'Lato', sans-serif;font-weight:bold;}
   p{color:#fff;font-family: 'Montserrat', sans-serif}
+  img{width:40px;height:40px;border-radius:50%;}
+
+  button{background:#fff;border-radius:20px;border:0;font-family:'Lato', sans-serif;padding:7px 15px;
+    color:#1b3866;font-weight:bold;margin-bottom:30px;box-shadow:5px 5px 10px rgba(0,0,0,0.5);transition:1s all;}
+  button:hover{background:linear-gradient(to bottom right, #1b3866, #00aba4);color:#fff;}
+  button:focus{outline:0;}
+
+  .alreadyEat, .eatNoon, .inscription{
+    padding:15px;
+
+    h4{margin-bottom:25px;}
+  }
+
+  .blocPerson{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* MOBILE */
+@media all and (max-width:992px) {
+  button{margin-bottom:10px}
+
+  .blocPerson {
+    margin-bottom:15px;
+    p{margin:0}
+  }
+}
+@media all and (max-width:1080px) {
+  .viseogroup{
+    flex-direction:column;
+
+    .alreadyEat, .eatNoon{
+      border-bottom:1px solid rgba(255,255,255,0.3);
+    }
+
+    .blocPerson {
+      flex-direction: column;
+    }
+  }
 }

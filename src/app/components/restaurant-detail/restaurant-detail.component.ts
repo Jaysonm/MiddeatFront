@@ -1,9 +1,11 @@
 import {Component, OnInit, NgZone, OnDestroy} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {RestoService} from "../../service/resto.service";
-import {Resto} from "../../model/Resto";
-import {SpecialityImgPipe} from "../../pipe/speciality-img.pipe";
-import {GooglemapService} from "../../service/googlemap.service";
+import {RestaurantService} from "../../services/restaurant.service";
+import {Restaurant} from "../../models/Restaurant";
+import {SpecialityImgPipe} from "../../pipes/speciality-img.pipe";
+import {GooglemapService} from "../../services/googlemap.service";
+import {SpinnerService} from "../../subjects/spinner.subject";
+import {Testimonial} from "../../models/Testimonial";
 
 @Component({
   selector: 'restaurant-detail',
@@ -12,21 +14,23 @@ import {GooglemapService} from "../../service/googlemap.service";
   providers: [GooglemapService]
 })
 export class RestaurantDetailComponent implements OnInit, OnDestroy {
-  public resto : Resto;
+  public resto : Restaurant;
   public lat: number = 0;
   public lng: number = 0;
   public index : number = 0;
-  public testimonial : string;
+  public testimonial : Testimonial;
   public timer;
 
-  constructor(private route : ActivatedRoute, private restoService : RestoService, private googlemap : GooglemapService,
-              private zone : NgZone) {}
+  constructor(private route : ActivatedRoute, private restoService : RestaurantService, private googlemap : GooglemapService,
+              private zone : NgZone, private spinner : SpinnerService) {}
 
   ngOnInit() {
+    this.spinner.start();
     if(this.route.snapshot.params['id']){
       let currentId = this.route.snapshot.params['id'];
       this.restoService.getOneById(currentId).subscribe(res => {
         this.resto = res;
+        this.spinner.stop();
 
         if(res.testimonials){
           this.testimonial = res.testimonials[0];

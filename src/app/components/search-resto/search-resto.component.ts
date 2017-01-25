@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {RestoService} from "../../service/resto.service";
-import {Speciality} from "../../model/Speciality";
+import {RestaurantService} from "../../services/restaurant.service";
+import {Speciality} from "../../models/Speciality";
 
 @Component({
   selector: 'search-resto',
@@ -12,7 +12,7 @@ export class SearchRestoComponent implements OnInit {
   public specialities : Speciality[];
   public specialitiesCheck : string[];
 
-  constructor(private restoService: RestoService) {
+  constructor(private restoService: RestaurantService) {
     this.restoService.getAllSpeciality().subscribe(res => this.specialities = res);
   }
 

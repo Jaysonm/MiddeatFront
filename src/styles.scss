@@ -7,3 +7,11 @@
 body{
   margin:0;
 }
+
+.hideMobile{display:block;}
+.showMobile{display:none;}
+
+@media all and (max-width:992px){
+  .hideMobile{display:none;}
+  .showMobile{display:block;}
+}

@@ -1,0 +1,14 @@
+.account{
+  position:relative;z-index:5;
+
+  .section-group{
+    display:flex;align-items: center;margin-top:20px;
+    p{font-family:'Lato', sans-serif;color:#1b3866;margin-bottom:0}
+    img{width:30px;height:30px;margin:0 10px}
+
+    .special-icon-redimension{width:60px!important;height:60px!important;}
+  }
+
+  button{width:99%;padding:10px;background-color:#1b3866;color:#fff;border-radius:15px;margin-top:20px;}
+
+}

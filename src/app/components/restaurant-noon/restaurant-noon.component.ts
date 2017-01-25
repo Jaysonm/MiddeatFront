@@ -1,20 +1,20 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {PersonService} from "../../service/person.service";
-import {Person} from "../../model/Person";
+import {UserService} from "../../services/user.service";
+import {User} from "../../models/User";
 
 @Component({
   selector: 'restaurant-noon',
   templateUrl: 'restaurant-noon.component.html',
   styleUrls: ['restaurant-noon.component.scss'],
-  providers: [PersonService]
+  providers: [UserService]
 })
 export class RestaurantNoonComponent implements OnInit {
   @Input() noon : number[];
   @Input() alreadyEat : number[];
-  public personsNoon : Array<Person> = new Array<Person>();
-  public personsAte : Array<Person> = new Array<Person>();
+  public personsNoon : Array<User> = new Array<User>();
+  public personsAte : Array<User> = new Array<User>();
 
-  constructor(private personService : PersonService) { }
+  constructor(private personService : UserService) { }
 
   ngOnInit() {
     for(let index of this.noon){

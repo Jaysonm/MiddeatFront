@@ -8,10 +8,10 @@
 
       <div class="detailsContact">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <p><img src="app/images/localisation.png" /> {{ resto.position }} </p>
+          <p><img src="app/images/icons/localisation.png" /> {{ resto.position }} </p>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <p><img src="app/images/contact.png" /> {{ resto.contact }} </p>
+          <p><img src="app/images/icons/contact.png" /> {{ resto.contact }} </p>
         </div>
       </div>
     </div>
@@ -23,9 +23,9 @@
       <p>{{ resto.rating | rating }}</p>
     </div>
     <div class="testimonial col-lg-3 col-md-4 col-sm-12 col-xs-12">
-      <img src="app/images/quote1.png" alt="quote" />
-      <p> {{ testimonial }} </p>
-      <img src="app/images/quote2.png" alt="quote" />
+      <img src="app/images/icons/quote1.png" alt="quote" />
+      <p *ngIf="testimonial"> {{ testimonial.description }} </p>
+      <img src="app/images/icons/quote2.png" alt="quote" />
     </div>
     <div class="website col-lg-3 col-md-4 col-sm-12 col-xs-12">
       <h4>SITE WEB</h4>
@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <restaurant-noon [noon]="resto.noon" [alreadyEat]="resto.visited"></restaurant-noon>
+  <restaurant-noon *ngIf="resto.noon && resto.visited" [noon]="resto.noon" [alreadyEat]="resto.visited"></restaurant-noon>
 
   <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="17">
     <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>

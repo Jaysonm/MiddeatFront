@@ -5,17 +5,22 @@ import {HttpModule} from "@angular/http";
 import {AppComponent} from "./app.component";
 import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemRestaurantsService} from "./bdd/restaurants";
-import {RestoService} from "./service/resto.service";
+import {RestaurantService} from "./services/restaurant.service";
 import 'assets/rxjs-extensions';
 import { RestaurantListComponent } from './components/restaurant-list/restaurant-list.component';
-import { SearchPipe } from './pipe/search.pipe';
+import { SearchPipe } from './pipes/search.pipe';
 import { SearchRestoComponent } from './components/search-resto/search-resto.component';
 import { RestaurantDetailComponent } from './components/restaurant-detail/restaurant-detail.component';
 import {AppRoutingModule} from "./app.routing";
-import { SpecialityImgPipe } from './pipe/speciality-img.pipe';
+import { SpecialityImgPipe } from './pipes/speciality-img.pipe';
 import {AgmCoreModule} from "angular2-google-maps/esm/core";
-import { RatingPipe } from './pipe/rating.pipe';
+import { RatingPipe } from './pipes/rating.pipe';
 import { RestaurantNoonComponent } from './components/restaurant-noon/restaurant-noon.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import {SpinnerService} from "./subjects/spinner.subject";
+import { ProfilComponent } from './components/profil/profil.component';
+import { AccountComponent } from './components/profil/account/account.component';
+import { PasswordComponent } from './components/profil/password/password.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,10 @@ import { RestaurantNoonComponent } from './components/restaurant-noon/restaurant
     SpecialityImgPipe,
     RatingPipe,
     RestaurantNoonComponent,
+    SpinnerComponent,
+    ProfilComponent,
+    AccountComponent,
+    PasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +47,7 @@ import { RestaurantNoonComponent } from './components/restaurant-noon/restaurant
       apiKey: 'AIzaSyCXf5ZXZV197IxJYO1_mpIRQ2DgVYwDXwI'
     })
   ],
-  providers: [RestoService],
+  providers: [RestaurantService, SpinnerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

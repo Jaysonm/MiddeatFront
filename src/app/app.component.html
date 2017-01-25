@@ -1,1 +1,18 @@
+<div class="menu" (click)="openMenu()" *ngIf="!isOpen">
+  <img src="app/images/icons/categories.png" alt="menu"  />
+</div>
+<div class="menu" (click)="closeMenu()" *ngIf="isOpen">
+  <img src="app/images/icons/close.png" alt="menu" />
+</div>
+
+<div class="deroulant" #deroulant>
+  <a routerLink="resto">ACCUEIL</a>
+  <a routerLink="favori">RESTOS FAVORIS</a>
+  <a routerLink="groupes">GROUPES</a>
+  <a routerLink="profil">MON COMPTE</a>
+</div>
+
 <router-outlet></router-outlet>
+<router-outlet name="acc"></router-outlet>
+
+<app-spinner></app-spinner>
