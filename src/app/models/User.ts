@@ -13,4 +13,6 @@ export class User{
   public bu : string;
   public poste : string;
 
+  public id_proposition : number;
+
 }

@@ -2,9 +2,11 @@
   <h1> Mon profil </h1>
 
   <ul class="menu">
-    <li><a [routerLink]="[{outlets: {acc: 'account'}}]" routerLinkActive="active"> ACCOUNT </a></li>
-    <li><a [routerLink]="[{outlets: {acc: 'password'}}]" routerLinkActive="active"> PASSWORD </a></li>
+    <li><a routerLink="account" routerLinkActive="active"> ACCOUNT </a></li>
+    <li><a routerLink="password" routerLinkActive="active"> PASSWORD </a></li>
   </ul>
+
+  <router-outlet></router-outlet>
 </div>
 
 <div class="effect-background">

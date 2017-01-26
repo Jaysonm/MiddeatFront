@@ -1,33 +1,45 @@
-<div class="container account" *ngIf="currentUser">
-  <div class="col-lg-offset-4 col-lg-4 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-12">
+<div class="account" *ngIf="currentUser">
+  <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-12">
     <div class="section-info">
-      <div class="section-group">
+      <div class="section-group mobile-group">
         <img src="app/images/icons/user.png" alt="prenom-nom" />
         <p> {{ currentUser.firstname }} {{currentUser.lastname}}</p>
       </div>
 
       <div class="section-group">
-        <img src="app/images/icons/group.png" alt="bu-viseo" />
-        <p> {{ currentUser.bu }}</p>
+        <div class="part1">
+          <img src="app/images/icons/group.png" alt="bu-viseo" />
+          <p> {{ currentUser.bu }}</p>
+        </div>
 
-        <img src="app/images/icons/business.png" alt="poste-bu" class="special-icon-redimension" />
-        <p> {{ currentUser.poste }}</p>
+        <div class="part2">
+          <img src="app/images/icons/business.png" alt="poste-bu" class="special-icon-redimension" />
+          <p> {{ currentUser.poste }}</p>
+        </div>
+      </div>
+
+      <div class="section-group special-contact">
+        <div class="part1">
+          <img src="app/images/icons/mail.png" alt="email" />
+          <p> {{ currentUser.email }}</p>
+        </div>
+
+        <div class="part2">
+          <img src="app/images/icons/contact2.png" alt="telephone" />
+          <p> {{ currentUser.phone }}</p>
+        </div>
       </div>
 
       <div class="section-group">
-        <img src="app/images/icons/mail.png" alt="email" />
-        <p> {{ currentUser.email }}</p>
+        <div class="part1">
+          <img src="app/images/icons/locate.png" alt="adresse" />
+          <p> {{ currentUser.address }} </p>
+        </div>
 
-        <img src="app/images/icons/contact2.png" alt="telephone" />
-        <p> {{ currentUser.phone }}</p>
-      </div>
-
-      <div class="section-group">
-        <img src="app/images/icons/locate.png" alt="adresse" />
-        <p> {{ currentUser.address }} </p>
-
-        <img src="app/images/icons/city.png" alt="cp-city" class="special-icon-redimension" />
-        <p> {{ currentUser.cp }}, {{currentUser.city}}</p>
+        <div class="part2">
+          <img src="app/images/icons/city.png" alt="cp-city" class="special-icon-redimension" />
+          <p> {{ currentUser.cp }}, {{currentUser.city}}</p>
+        </div>
       </div>
 
       <button> Editer son profil </button>

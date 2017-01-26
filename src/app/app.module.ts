@@ -21,6 +21,8 @@ import {SpinnerService} from "./subjects/spinner.subject";
 import { ProfilComponent } from './components/profil/profil.component';
 import { AccountComponent } from './components/profil/account/account.component';
 import { PasswordComponent } from './components/profil/password/password.component';
+import { PropositionComponent } from './components/proposition/proposition.component';
+import { PropositionListComponent } from './components/proposition-list/proposition-list.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { PasswordComponent } from './components/profil/password/password.compone
     ProfilComponent,
     AccountComponent,
     PasswordComponent,
+    PropositionComponent,
+    PropositionListComponent,
   ],
   imports: [
     BrowserModule,

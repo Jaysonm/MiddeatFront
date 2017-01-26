@@ -3,12 +3,33 @@
 
   .section-group{
     display:flex;align-items: center;margin-top:20px;
+
+    .part1, .part2 {
+      display:flex;
+      align-items:center;
+      flex-direction: row;
+    }
     p{font-family:'Lato', sans-serif;color:#1b3866;margin-bottom:0}
     img{width:30px;height:30px;margin:0 10px}
 
     .special-icon-redimension{width:60px!important;height:60px!important;}
   }
 
-  button{width:99%;padding:10px;background-color:#1b3866;color:#fff;border-radius:15px;margin-top:20px;}
+  button{width:100%;padding:10px;background-color:#1b3866;color:#fff;border-radius:15px;margin-top:20px;}
 
+  @media all and (max-width:380px){
+    .mobile-group{flex-direction:row!important;align-items:center!important;}
+    .section-group{
+      flex-direction:column;
+      margin:15px 0;
+      align-items: flex-start;
+
+      .special-icon-redimension{width:30px!important;height:30px!important;}
+    }
+    .part1, .part2 {
+      display:flex;
+      align-items:center;
+      flex-direction: row;
+    }
+  }
 }

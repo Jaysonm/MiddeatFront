@@ -19,4 +19,8 @@ export class UserService {
       .map(res => res.json().data as User);
   }
 
+  putCheck(id : number) {
+    this.http.get(`${this.url}/${id}`)
+  }
+
 }

@@ -1,0 +1,31 @@
+<div class="container proposition-list">
+  <h1> Mes propositions </h1>
+
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container-prop" *ngFor="let proposition of propositions">
+    <div class="detail">
+      <div class="user">
+        <div class="col-xs-3">
+          <img src="{{proposition.user_creator.profil}}" alt="profil_creator" />
+        </div>
+        <div class="col-xs-9">
+          <h4>{{proposition.user_creator.firstname}} {{proposition.user_creator.lastname}}</h4>
+          <p> vous propose ... </p>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <h3>{{proposition.restaurant.name}}</h3>
+        <p>({{proposition.restaurant.speciality}})</p>
+      </div>
+    </div>
+
+    <div class="bandeau">
+      <p>{{proposition.date}}</p>
+
+      <button class="top" (click)="goToProposition(proposition.id)"><img src="app/images/icons/search.png" alt="recherche"></button>
+      <button (click)="participate(proposition.user_creator.id, proposition.id)" *ngIf="currentUser">
+        <img class="speImg" [attr.src]="currentUser.id_proposition === proposition.id ? 'app/images/icons/validgreen.png' : 'app/images/icons/valid.png'"
+             alt="validation">
+      </button>
+    </div>
+  </div>
+</div>

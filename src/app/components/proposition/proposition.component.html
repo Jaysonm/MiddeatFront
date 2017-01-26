@@ -1,0 +1,16 @@
+<div class="container proposition" *ngIf="proposition">
+  <h1> Proposition #{{ proposition.id }} </h1>
+
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 detail-creator">
+    <img src="{{ proposition.user_creator.profil }}" alt="profil-creator" />
+
+    <div class="caracteristique-creator">
+      <h2> {{proposition.user_creator.firstname }} {{proposition.user_creator.lastname }}</h2>
+      <h3> {{proposition.user_creator.poste }} </h3>
+      <p> {{proposition.user_creator.bu }}</p>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+  </div>
+</div>
