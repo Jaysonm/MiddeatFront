@@ -75,19 +75,23 @@ export class InMemRestaurantsService implements InMemoryDbService {
       { id: 7, name: 'Americain' }
     ];
     let propositions = [
-      { id: 1, restaurant:{id:1,name:'Pizza de l\'Ormeau', speciality:'Italien'}, user_creator: {id:2, firstname:'Fabien', lastname:'Escrive',
-        profil:'app/images/img_profil/2.jpg'}, date:'12h45', participants:[
+      { id: 1, restaurant:{id:1,name:'Pizza de l\'Ormeau', speciality:'Italien', position:'345 Avenue Jean Rieux, 31000 Toulouse'},
+        user_creator: {id: 1, firstname: 'Fabien', lastname : 'Escrive', bu : 'BI', poste : 'RH', profil:'app/images/img_profil/2.jpg',
+          email : 'fabien.escrive@viseo.com', phone:'0648569874', address:'17 rue de l\'Oratoire', city:'Colomiers',
+          cp:'31770', id_proposition:1}, date : '12h45', participants : [
         { id: 2, firstname: 'Jayson', lastname : 'Metivier', bu : 'TECHNO', poste : 'Développeur Angular2', profil:'app/images/img_profil/2.jpg',
           email : 'jayson.metivier@viseo.com', phone:'0618550656',address:'15 rue du pic de la Gela', city:'Tournefeuille', cp:'31170'
         }, { id: 5, firstname: 'Audrey', lastname : 'Boutet', bu : 'SAP', poste : 'Responsable', profil:'app/images/img_profil/3.jpg',
           email : 'audrey.boutey@viseo.com', phone:'0648569874',address:'17 rue de l\'Oratoire', city:'Colomiers', cp:'31770'
         }]
       },
-      { id: 2, restaurant:{id:8,name:'Le Bistronomique', speciality:'Tout'}, user_creator: {id:6, firstname:'Imane', lastname:'Cherak',
-        profil:'app/images/img_profil/3.jpg'}, date:'12h45', participants:[
+      { id: 2, restaurant:{id:8,name:'Le Bistronomique', speciality:'Tout'},
+        user_creator: {id: 6, firstname: 'Imane', lastname : 'Cherak', bu : 'SAP', poste : 'Stagiaire',
+          profil:'app/images/img_profil/4.jpg', email : 'imane.cherak@viseo.com', phone:'0648569874'}, date:'12h45', participants:[
         { id: 6, firstname: 'Imane', lastname : 'Cherak', bu : 'SAP', poste : 'Stagiaire', profil:'app/images/img_profil/4.jpg',
           email : 'imane.cherak@viseo.com', phone:'0648569874',address:'17 rue de l\'Oratoire', city:'Colomiers', cp:'31770'
-        }, { id: 7, firstname: 'Mohamed Tahar', lastname : 'Habhab', bu : 'TECHNO', poste : 'Développeur Java', profil:'app/images/img_profil/1.jpg',
+        },
+        { id: 7, firstname: 'Mohamed Tahar', lastname : 'Habhab', bu : 'TECHNO', poste : 'Développeur Java', profil:'app/images/img_profil/1.jpg',
           email : 'mohamed.tahar@viseo.com', phone:'0648569874',address:'17 rue de l\'Oratoire', city:'Colomiers', cp:'31770'
         }]
       }

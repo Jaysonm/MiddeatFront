@@ -3,6 +3,8 @@ import {Proposition} from "../../models/Proposition";
 import {PropositionService} from "../../services/proposition.service";
 import {ActivatedRoute} from "@angular/router";
 import {SpinnerService} from "../../subjects/spinner.subject";
+import {SpecialityImgPipe} from "../../pipes/speciality-img.pipe";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'proposition',
@@ -14,7 +16,7 @@ export class PropositionComponent implements OnInit {
   public proposition : Proposition;
 
   constructor(private propositionService : PropositionService, private spinnerService : SpinnerService,
-              private route : ActivatedRoute) { }
+              private route : ActivatedRoute, private location : Location) { }
 
   ngOnInit() {
     this.spinnerService.start();
@@ -26,5 +28,14 @@ export class PropositionComponent implements OnInit {
       });
     }
   };
+
+  getClassBySpeciality(speciality: string): string {
+    let pipeSpe = new SpecialityImgPipe();
+    return pipeSpe.transform(speciality);
+  };
+
+  goBack() : void{
+    this.location.back();
+  }
 
 }
