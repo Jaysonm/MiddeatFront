@@ -35,18 +35,22 @@
 }
 
 .effect-background{
-  position:absolute;top:0;right:0;bottom:0;left:0;height:100vh;width:100%;background:linear-gradient(to bottom right, #00aba4, #1b3866);
+  position:absolute;top:0;right:0;bottom:0;left:0;height:100vh;width:100%;
+  background:linear-gradient(to bottom right, #00aba4, #1b3866);
 }
 
 .effect-circle{
-  position:absolute;top:0;right:0;left:0;bottom:0;margin:0 auto;z-index:2;
-  height:70vh;width:100%;background-color:#fff;border-radius:0 0 50% 50%;
+  position:absolute;top:0;right:0;left:0;bottom:0;height:100vh;width:100%;
+  background-color:#fff;border-radius:0 0 50% 50%;
 }
 
 @media all and (max-width:768px){
-  .effect-circle{border-radius:0 0 30% 30%}
-}
 
-@media all and (max-width:458px){
-  .effect-circle{border-radius:0 0 10% 10%}
+  .effect-background{
+    height: 2vh;top:inherit;
+
+    .effect-circle{
+      height:0;
+    }
+  }
 }

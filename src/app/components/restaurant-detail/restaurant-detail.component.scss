@@ -1,3 +1,11 @@
+.back{
+  position:fixed;left:50px;top:20px;background-color:#1b3866;
+  padding:2px;border-radius:50%;z-index:10;border:1px solid rgba(255,255,255,0.5);
+  cursor:pointer;
+
+  img{width:30px;height:30px;}
+}
+
 .detail-restaurant{
   background: rgba(0,0,0,0.3) no-repeat center;position:relative;
   background-size: cover;color:#fff;padding:70px;
