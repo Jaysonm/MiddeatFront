@@ -1,3 +1,5 @@
+<div class="back" (click)="goBack()"><img src="app/images/icons/back.png" alt="back" /></div>
+
 <div class="restaurant-page" *ngIf="resto">
   <div class="detail-restaurant" [ngStyle]="{'background-image': 'url(' + getClassBySpeciality(resto.speciality) + ')'}">
     <div class="background-detail-restaurant"></div>

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RestaurantService} from "../../services/restaurant.service";
 import {Speciality} from "../../models/Speciality";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'search-resto',
@@ -12,7 +13,8 @@ export class SearchRestoComponent implements OnInit {
   public specialities : Speciality[];
   public specialitiesCheck : string[];
 
-  constructor(private restoService: RestaurantService) {
+  constructor(private restoService: RestaurantService, private userService : UserService) {
+    localStorage.setItem("user", "1");
     this.restoService.getAllSpeciality().subscribe(res => this.specialities = res);
   }
 

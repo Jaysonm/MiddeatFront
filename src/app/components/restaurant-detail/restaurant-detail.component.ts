@@ -6,6 +6,7 @@ import {SpecialityImgPipe} from "../../pipes/speciality-img.pipe";
 import {GooglemapService} from "../../services/googlemap.service";
 import {SpinnerService} from "../../subjects/spinner.subject";
 import {Testimonial} from "../../models/Testimonial";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'restaurant-detail',
@@ -22,7 +23,7 @@ export class RestaurantDetailComponent implements OnInit, OnDestroy {
   public timer;
 
   constructor(private route : ActivatedRoute, private restoService : RestaurantService, private googlemap : GooglemapService,
-              private zone : NgZone, private spinner : SpinnerService) {}
+              private zone : NgZone, private spinner : SpinnerService, private location : Location) {}
 
   ngOnInit() {
     this.spinner.start();
@@ -55,6 +56,10 @@ export class RestaurantDetailComponent implements OnInit, OnDestroy {
     let pipeSpe = new SpecialityImgPipe();
     return pipeSpe.transform(speciality);
   };
+
+  goBack() : void{
+    this.location.back();
+  }
 
   ngOnDestroy(){
     clearInterval(this.timer);

@@ -1,7 +1,7 @@
 export class User{
-  private id : number;
-  public firstname : string ;
-  public lastname : string ;
+  public id : number;
+  public firstname : string;
+  public lastname : string;
 
   public email : string;
   public phone : string;
@@ -15,4 +15,7 @@ export class User{
 
   public id_proposition : number;
 
+  public toString() : string{
+    return "{ id : " + this.id + " } "
+  }
 }
