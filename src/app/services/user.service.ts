@@ -5,18 +5,18 @@ import {Observable} from "rxjs";
 
 @Injectable()
 export class UserService {
-  private url = 'api/users';
+  private url = 'http://localhost:8180/back/users';
 
   constructor(private http : Http) {}
 
   getAll() : Observable<User[]>{
     return this.http.get(this.url)
-      .map(res => res.json().data as User[]);
+      .map(res => res.json() as User[]);
   }
 
   getPersonById(id : number) : Observable<User>{
     return this.http.get(`${this.url}/${id}`)
-      .map(res => res.json().data as User);
+      .map(res => res.json() as User);
   }
 
   putCheck(id : number) {

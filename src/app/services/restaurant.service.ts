@@ -6,14 +6,14 @@ import {Speciality} from "../models/Speciality";
 
 @Injectable()
 export class RestaurantService {
-  private url = 'api/restaurants';
+  private url = 'http://localhost:8180/back/restaurant';
   private urlSpe = 'api/specialities';
 
   constructor(private http : Http) { }
 
   getAll() : Observable<Restaurant[]>{
     return this.http.get(this.url)
-      .map((res : Response) => res.json().data as Restaurant[]);
+      .map((res : Response) => res.json() as Restaurant[]);
   }
 
   getAllSpeciality() : Observable<Speciality[]> {
@@ -23,6 +23,6 @@ export class RestaurantService {
 
   getOneById(id : number) : Observable<Restaurant> {
     return this.http.get(`${this.url}/${id}`)
-      .map(res => res.json().data as Restaurant);
+      .map(res => res.json() as Restaurant);
   }
 }

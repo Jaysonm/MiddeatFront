@@ -28,7 +28,7 @@ export class InMemRestaurantsService implements InMemoryDbService {
         {id:11, id_restaurant:4, description:'Miam la savoyarde, la New-York et la foie gras !'},
         {id:12, id_restaurant:4, description:'Les meilleurs pizzas que j\'ai pu gouter!'}
       ]},
-      { id: 5, name: 'Ristorante del Arte', speciality : 'Italien', position: '5 Allée des Champs Pinsons, 31650 Saint-Orens-de-Gameville', contact : '05 61 00 23 15',
+      { id: 5, name: 'Ristorante del Arte', speciality : 'c', position: '5 Allée des Champs Pinsons, 31650 Saint-Orens-de-Gameville', contact : '05 61 00 23 15',
         rating : 3.6, website : 'delarte.fr', noon : [1,4,6], visited : [2,5,7], testimonials : [
         {id:13, id_restaurant:5, description:'Les salades sont aussi bonnes et copieuses.'},
         {id:14, id_restaurant:5, description:'Serveurs sympa cadre agréable'},
@@ -129,7 +129,7 @@ export class InMemRestaurantsService implements InMemoryDbService {
       {id:30, id_restaurant:10, description:'Arrivés tôt (19h) Si vous ne voulez pas attendre 1h pour être installer.'},
     ];
 
-    let users = [
+    let user = [
       { id: 1, firstname: 'Fabien', lastname : 'Escrive', bu : 'BI', poste : 'RH', profil:'app/images/img_profil/2.jpg',
         email : 'fabien.escrive@viseo.com', phone:'0648569874',address:'17 rue de l\'Oratoire', city:'Colomiers', cp:'31770', id_proposition:1},
       { id: 2, firstname: 'Jayson', lastname : 'Metivier', bu : 'TECHNO', poste : 'Développeur Angular2', profil:'app/images/img_profil/2.jpg',
@@ -151,6 +151,6 @@ export class InMemRestaurantsService implements InMemoryDbService {
       { id: 10, firstname: 'Eric', lastname : 'Fernandez', bu : 'TECHNO', poste : 'Responsable BU Techno', profil:'app/images/img_profil/1.jpg',
         email : 'eric.fernandez@viseo.com', phone:'0648569874',address:'17 rue de l\'Oratoire', city:'Colomiers', cp:'31770'}
     ];
-    return {restaurants, specialities, users, propositions};
+    return {restaurants, specialities, user, propositions};
   }
 }

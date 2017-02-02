@@ -23,6 +23,8 @@ import { AccountComponent } from './components/profil/account/account.component'
 import { PasswordComponent } from './components/profil/password/password.component';
 import { PropositionComponent } from './components/proposition/proposition.component';
 import { PropositionListComponent } from './components/proposition-list/proposition-list.component';
+import {UserService} from "./services/user.service";
+import {ModalModule} from "ng2-bootstrap";
 
 @NgModule({
   declarations: [
@@ -46,12 +48,13 @@ import { PropositionListComponent } from './components/proposition-list/proposit
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    ModalModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemRestaurantsService, {passThruUnknownUrl: true}),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCXf5ZXZV197IxJYO1_mpIRQ2DgVYwDXwI'
     })
   ],
-  providers: [RestaurantService, SpinnerService],
+  providers: [RestaurantService, SpinnerService, UserService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

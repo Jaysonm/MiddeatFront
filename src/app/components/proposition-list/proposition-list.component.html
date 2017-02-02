@@ -1,5 +1,5 @@
 <div class="container proposition-list">
-  <h1> Mes propositions </h1>
+  <h1> Propositions </h1>
 
   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container-prop" *ngFor="let proposition of propositions">
     <div class="detail">
@@ -22,10 +22,40 @@
       <p>{{proposition.date}}</p>
 
       <button class="top" (click)="goToProposition(proposition.id)"><img src="app/images/icons/search.png" alt="recherche"></button>
-      <button (click)="participate(proposition.user_creator.id, proposition.id)" *ngIf="currentUser">
-        <img class="speImg" [attr.src]="currentUser.id_proposition === proposition.id ? 'app/images/icons/validgreen.png' : 'app/images/icons/valid.png'"
+      <button (click)="participate(proposition.id)">
+        <img class="speImg" [attr.src]="currentProposition === proposition.id ? 'app/images/icons/validgreen.png' : 'app/images/icons/valid.png'"
              alt="validation">
       </button>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="btn-proposition" (click)="staticModal.show()">
+  <img src="app/images/icons/add.png" />
+</button>
+
+<div class="modal fade" bsModal #staticModal="bs-modal" tabindex="-1" role="dialog"
+     aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="staticModal.hide()">&times;</button>
+        <h4 class="modal-title">Ajouter une proposition</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <select name="restaurant">
+            <option *ngFor="let restaurant of restaurants" value="{{restaurant.id}}">
+              {{ restaurant.name }}
+            </option>
+          </select>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="staticModal.hide()">Close</button>
+      </div>
     </div>
   </div>
 </div>
