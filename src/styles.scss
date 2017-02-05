@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+
 @import url('https://fonts.googleapis.com/css?family=Lato');
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 

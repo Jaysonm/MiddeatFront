@@ -24,7 +24,7 @@ import { PasswordComponent } from './components/profil/password/password.compone
 import { PropositionComponent } from './components/proposition/proposition.component';
 import { PropositionListComponent } from './components/proposition-list/proposition-list.component';
 import {UserService} from "./services/user.service";
-import {ModalModule} from "ng2-bootstrap";
+import {AppNgbootstrapModule} from "./app.ngboostrap";
 
 @NgModule({
   declarations: [
@@ -48,7 +48,7 @@ import {ModalModule} from "ng2-bootstrap";
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    ModalModule.forRoot(),
+    AppNgbootstrapModule,
     InMemoryWebApiModule.forRoot(InMemRestaurantsService, {passThruUnknownUrl: true}),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCXf5ZXZV197IxJYO1_mpIRQ2DgVYwDXwI'

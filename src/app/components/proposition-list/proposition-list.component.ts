@@ -21,6 +21,7 @@ export class PropositionListComponent implements OnInit {
   public currentProposition : number;
 
   public restaurants : Restaurant[];
+  public proposition : any = new Object();
 
   private participant : Participant = new Participant();
 
@@ -49,6 +50,20 @@ export class PropositionListComponent implements OnInit {
 
   goToProposition(id : number) : void{
     this.router.navigate(['propositions', id]);
+  }
+
+  getRestaurant(id : number) : void{
+    this.proposition.user_creator = this.currentUser;
+    this.proposition.restaurant = id;
+  }
+
+  addOneProposition(p : Object) : void{
+    this.propositionService.addProposition(p).subscribe(res => this.propositions.push(res));
+  }
+
+  delete(idProp : number, idSlice : number) : void{
+    this.propositionService.remove(idProp).subscribe();
+    this.propositions.splice(idSlice, 1);
   }
 
   participate(id_prop : number) : void{

@@ -21,7 +21,12 @@ export class PropositionService {
       .map(res => res.json());
   }
 
-  addProposition(proposition : any) {
-    return this.http.post(`${this.url}`, {proposition}, this.options);
+  addProposition(proposition : any){
+    return this.http.post(`${this.url}`, proposition, this.options)
+      .map(res => res.json());
+  }
+
+  remove(id : number){
+    return this.http.delete(`${this.url}/${id}`);
   }
 }
