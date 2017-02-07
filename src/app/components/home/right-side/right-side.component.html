@@ -1,0 +1,39 @@
+<div class="col-lg-3 col-md-3" *ngIf="currentUser">
+  <div class="home-right-side">
+    <img class="profil" src="{{ currentUser.profil }}" alt="profil-creator" />
+
+    <div class="detail-user">
+      <h2> {{currentUser.firstname }} {{currentUser.lastname }}</h2>
+      <h3> {{currentUser.poste }} </h3>
+      <p> {{currentUser.bu }} </p>
+
+      <div class="row">
+        <div class="col-xs-6 detail-group">
+          <img src="app/images/icons/contact.png" alt="icon-phone" />
+          <span> {{currentUser.phone}} </span>
+        </div>
+        <div class="col-xs-6 detail-group">
+          <img src="app/images/icons/mail2.png" alt="icon-mail" />
+          <span> {{currentUser.email}} </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 detail-group">
+          <img src="app/images/icons/locate.png" alt="icon-phone" />
+          <span> {{currentUser.address}} </span>
+        </div>
+        <div class="col-xs-6 detail-group">
+          <img src="app/images/icons/mail2.png" alt="icon-mail" />
+          <span> {{currentUser.cp}}, {{currentUser.city}} </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="router">
+    <button type="button" class="left-button">Favoris</button>
+    <button type="button" class="right-button">Groupes</button>
+  </div>
+
+</div>

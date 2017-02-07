@@ -29,6 +29,9 @@ import { SearchPropPipe } from './pipes/search-prop.pipe';
 import { PropositionModalComponent } from './components/proposition/proposition-modal/proposition-modal.component';
 import { RestaurantSearchComponent } from './components/restaurant/restaurant-search/restaurant-search.component';
 import { HomeComponent } from './components/home/home.component';
+import { LeftSideComponent } from './components/home/left-side/left-side.component';
+import { RightSideComponent } from './components/home/right-side/right-side.component';
+import { CenterComponent } from './components/home/center/center.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,9 @@ import { HomeComponent } from './components/home/home.component';
     PropositionModalComponent,
     RestaurantSearchComponent,
     HomeComponent,
+    LeftSideComponent,
+    RightSideComponent,
+    CenterComponent,
   ],
   imports: [
     BrowserModule,
