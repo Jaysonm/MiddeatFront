@@ -1,0 +1,21 @@
+<button type="button" class="btn-search" (click)="openSearch()" *ngIf="!isOpen">
+  <img src="app/images/icons/search.png" />
+</button>
+<button type="button" class="btn-search" (click)="closeSearch()" *ngIf="isOpen">
+  <img src="app/images/icons/close.png" alt="menu" />
+</button>
+
+<div class="restaurant-search" #searchDeroulant>
+  <div class="form-group">
+    <label for="search">Recherche</label>
+    <input type="text" class="form-control" id="search" name="search" (keyup)="changeValue($event)" />
+  </div>
+
+  <div class="specialities" *ngFor="let speciality of specialities; let i = index;">
+    <div class="speciality" (click)="getSpecialities(speciality)">
+      <img [attr.src]="speciality.checked === true ? 'app/images/icons/checkboxvalid.png' : 'app/images/icons/checkbox.png'" alt="checkbox" />
+      <span> {{speciality.name}} </span>
+    </div>
+  </div>
+</div>
+

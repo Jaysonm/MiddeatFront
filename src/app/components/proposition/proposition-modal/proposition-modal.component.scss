@@ -1,0 +1,27 @@
+.btn-proposition{
+  position:fixed;bottom:20px;right:50px;z-index:11;border:1px solid rgba(255,255,255,0.5);background-color:#1b3866;
+  border-radius:50%;padding:5px;
+  img{width:30px;height:30px;}
+
+  &:focus, &:active, &:visited{
+    outline:0;
+  }
+}
+
+.modal{
+  text-align:center;
+
+  .btn-modal-proposition{
+    padding:10px;background-color:#1b3866;color:#fff;font-family:'Lato', sans-serif;
+  }
+
+  .row-choice{
+    display:flex;align-items:center;
+
+    timepicker{
+      span{
+        color:#1b3866;
+      }
+    }
+  }
+}

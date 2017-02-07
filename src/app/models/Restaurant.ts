@@ -2,7 +2,7 @@ import {User} from "./User";
 import {Testimonial} from "./Testimonial";
 import {MenuItem} from "./MenuItem";
 export class Restaurant{
-  private id : number;
+  public id : number;
   public name : string ;
   public speciality : string ;
 

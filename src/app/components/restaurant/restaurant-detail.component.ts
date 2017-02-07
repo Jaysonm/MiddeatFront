@@ -10,8 +10,8 @@ import {Location} from "@angular/common";
 
 @Component({
   selector: 'restaurant-detail',
-  templateUrl: './restaurant-detail.component.html',
-  styleUrls: ['./restaurant-detail.component.scss'],
+  templateUrl: 'restaurant-detail.component.html',
+  styleUrls: ['restaurant-detail.component.scss'],
   providers: [GooglemapService]
 })
 export class RestaurantDetailComponent implements OnInit, OnDestroy {
@@ -21,6 +21,7 @@ export class RestaurantDetailComponent implements OnInit, OnDestroy {
   public index : number = 0;
   public testimonial : Testimonial;
   public timer;
+  public currentIdResto : number;
 
   constructor(private route : ActivatedRoute, private restoService : RestaurantService, private googlemap : GooglemapService,
               private zone : NgZone, private spinner : SpinnerService, private location : Location) {}
@@ -28,8 +29,8 @@ export class RestaurantDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.spinner.start();
     if(this.route.snapshot.params['id']){
-      let currentId = this.route.snapshot.params['id'];
-      this.restoService.getOneById(currentId).subscribe(res => {
+      this.currentIdResto = this.route.snapshot.params['id'];
+      this.restoService.getOneById(this.currentIdResto).subscribe(res => {
         this.resto = res;
         this.spinner.stop();
 

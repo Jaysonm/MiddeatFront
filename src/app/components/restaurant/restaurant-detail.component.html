@@ -22,7 +22,7 @@
   <div class="description">
     <div class="rating col-lg-3 col-md-4 col-sm-12 col-xs-12">
       <h4>{{ resto.rating }} / 5</h4>
-      <p>{{ resto.rating | rating }}</p>
+      <p> {{ resto.rating | rating }} </p>
     </div>
     <div class="testimonial col-lg-3 col-md-4 col-sm-12 col-xs-12">
       <img src="app/images/icons/quote1.png" alt="quote" />
@@ -35,7 +35,7 @@
     </div>
   </div>
 
-  <restaurant-noon *ngIf="resto.noon && resto.visited" [noon]="resto.noon" [alreadyEat]="resto.visited"></restaurant-noon>
+  <restaurant-noon *ngIf="currentIdResto" [currentId]="currentIdResto"></restaurant-noon>
 
   <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="17">
     <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>

@@ -17,6 +17,11 @@ export class ParticipantService {
       .map(res => res.json());
   }
 
+  getParticipantForOneRestaurant(id : number){
+    return this.http.get(`${this.url}/restaurant/${id}`)
+      .map(res => res.json());
+  }
+
   addOneParticipant(id : Participant){
     return this.http.post(this.url, {id}, this.options);
   }
