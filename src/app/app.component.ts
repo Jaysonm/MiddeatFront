@@ -9,7 +9,7 @@ export class AppComponent{
   @ViewChild('deroulant') menu : ElementRef;
   isOpen : boolean = false;
 
-  constructor(){}
+  constructor(){ localStorage.setItem('user', '1'); }
 
   openMenu() : void{
     this.menu.nativeElement.style.right = 0;

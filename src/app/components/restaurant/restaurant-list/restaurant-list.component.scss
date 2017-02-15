@@ -1,0 +1,32 @@
+.restaurant-list{
+  position:relative;z-index:5;text-align:center;font-family:'Lato', sans-serif;color:#1b3866;
+  width:90%;margin:auto;
+
+  h1{margin-bottom:30px;}
+
+  .restaurant{
+    background: rgba(0,0,0,0.3) no-repeat center;position:relative;
+    background-size: cover;color:#fff;
+    padding:10px 30px;margin:10px 0;cursor:pointer;border-radius:10px;
+
+    .background-opacity{
+      position:absolute;top:0;bottom:0;left:0;right:0;z-index:1;
+      border-radius:10px;background-color:rgba(0,0,0,0.5);
+    }
+
+    .flex-resto{
+      position:relative;z-index:2;
+
+      h2{  font-family: 'Lato', sans-serif; margin-top:10px; }
+      p{ font-family: 'Montserrat', sans-serif; }
+
+      .check-in{
+        position:absolute;bottom:0;right:10px;
+
+        img{width:30px;height:30px;}
+      }
+    }
+  }
+}
+
+

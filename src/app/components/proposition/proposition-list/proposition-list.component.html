@@ -1,0 +1,44 @@
+<proposition-search [idSearchInput]="idSearchInput" (inputValue)="changeValue($event)" (checkboxValue)="ownProposition($event)">
+</proposition-search>
+
+<div class="container proposition-list">
+  <h1> Propositions </h1>
+
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" *ngFor="let proposition of propositions | searchProp:searchInput:checkbox; let i = index ">
+    <button type="button" *ngIf="proposition.user_creator.id === currentUser"
+            class="btn-closed" (click)="delete(proposition.id, i)">
+      <img src="app/images/icons/close.png" alt="close" />
+    </button>
+    <div class="container-prop">
+      <div class="detail">
+        <div class="user">
+          <div class="col-xs-3">
+            <img src="{{proposition.user_creator.profil}}" alt="profil_creator" />
+          </div>
+          <div class="col-xs-9">
+            <h4>{{proposition.user_creator.firstname}} {{proposition.user_creator.lastname}}</h4>
+            <p> propose ... </p>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <h3>{{proposition.restaurant.name}}</h3>
+          <p>({{proposition.restaurant.speciality}})</p>
+        </div>
+      </div>
+
+      <div class="bandeau">
+        <p>{{proposition.date}}</p>
+
+        <button class="top" (click)="goToProposition(proposition.id)"><img src="app/images/icons/search.png" alt="recherche"></button>
+        <button (click)="participate(proposition.id)">
+          <img class="speImg" [attr.src]="currentProposition === proposition.id ?
+          'app/images/icons/validgreen.png' : 'app/images/icons/valid.png'"
+               alt="validation">
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<proposition-modal [currentUser]="currentUser" (propositionEmit)="pushProposition($event);"></proposition-modal>
