@@ -6,5 +6,7 @@ export class Proposition {
   public user_creator : User;
   public date : string;
 
+  public slice : number;
+
   public participants : User[];
 }

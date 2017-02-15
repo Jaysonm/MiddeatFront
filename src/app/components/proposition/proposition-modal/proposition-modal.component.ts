@@ -3,11 +3,14 @@ import {Proposition} from "../../../models/Proposition";
 import {PropositionService} from "../../../services/proposition.service";
 import {RestaurantService} from "../../../services/restaurant.service";
 import {Restaurant} from "../../../models/Restaurant";
+import {WebsocketService} from "../../../services/websocket/websocket.service";
+import {WsPropositionService} from "../../../services/websocket/ws-proposition.service";
 
 @Component({
   selector: 'proposition-modal',
   templateUrl: './proposition-modal.component.html',
-  styleUrls: ['./proposition-modal.component.scss']
+  styleUrls: ['./proposition-modal.component.scss'],
+  providers: [WsPropositionService]
 })
 export class PropositionModalComponent implements OnInit {
   public proposition : any = new Object();
@@ -17,9 +20,9 @@ export class PropositionModalComponent implements OnInit {
   public currentUser : number;
 
   @Output()
-  public propositionEmit : EventEmitter<Proposition> = new EventEmitter();
+  public propositionEmit : EventEmitter<Object> = new EventEmitter();
 
-  constructor(private propositionService : PropositionService, private restaurantService : RestaurantService,) { }
+  constructor(private propositionService : PropositionService, private restaurantService : RestaurantService) { }
 
   ngOnInit() {
     this.restaurantService.getAll().subscribe(res => this.restaurants = res);
@@ -30,9 +33,14 @@ export class PropositionModalComponent implements OnInit {
     this.proposition.restaurant = id;
   }
 
-  addOneProposition(p : Object) : void{
-    this.propositionService.addProposition(p).subscribe(res => this.propositionEmit.emit(res));
+  addOneProposition(p : Proposition) : void{
+    this.propositionService.addProposition(p).subscribe(res => {
+      let object : Object =
+        {
+          action : 'add',
+          proposition : res
+        };
+      this.propositionEmit.emit(object)
+    });
   }
-
-
 }

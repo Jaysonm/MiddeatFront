@@ -25,7 +25,6 @@ export class LeftSideComponent implements OnInit {
         console.log(res);
         this.proposition = res;
         this.restaurantService.getOneById(res.restaurant.id).subscribe((resto : Restaurant) => {
-          console.log(resto);
           this.restaurant = resto;
           this.spinnerService.stop()
         });

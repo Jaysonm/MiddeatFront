@@ -6,12 +6,14 @@ import {SpinnerService} from "../../../subjects/spinner.subject";
 import {UserService} from "../../../services/user.service";
 import {Participant} from "../../../models/Participant";
 import {ParticipantService} from "../../../services/participant.service";
+import {WebsocketService} from "../../../services/websocket/websocket.service";
+import {WsPropositionService} from "../../../services/websocket/ws-proposition.service";
 
 @Component({
   selector: 'proposition-list',
   templateUrl: 'proposition-list.component.html',
   styleUrls: ['proposition-list.component.scss'],
-  providers: [PropositionService, UserService, ParticipantService]
+  providers: [PropositionService, ParticipantService, WsPropositionService]
 })
 export class PropositionListComponent implements OnInit {
   public propositions : Proposition[];
@@ -25,7 +27,17 @@ export class PropositionListComponent implements OnInit {
   public checkbox : number;
 
   constructor(private propositionService : PropositionService, private spinnerService : SpinnerService,
-              private router : Router, private route : ActivatedRoute, private participantService : ParticipantService) { }
+              private router : Router, private route : ActivatedRoute, private participantService : ParticipantService,
+              private wsSocket : WsPropositionService) {
+    this.wsSocket.messages.subscribe((proposition:Proposition) => {
+      if(typeof proposition !== 'number'){
+        this.propositions.push(proposition);
+      }
+      else{
+        this.propositions.splice(proposition, 1);
+      }
+    });
+  }
 
   ngOnInit() {
     this.spinnerService.start();
@@ -50,8 +62,13 @@ export class PropositionListComponent implements OnInit {
   }
 
   delete(idProp : number, idSlice : number) : void{
+    let object : Object =
+      {
+        action : 'delete',
+        slice : idSlice
+      };
+    this.wsSocket.messages.next(object);
     this.propositionService.remove(idProp).subscribe();
-    this.propositions.splice(idSlice, 1);
   }
 
   participate(id_prop : number) : void{
@@ -66,8 +83,8 @@ export class PropositionListComponent implements OnInit {
   }
 
   /* Modal add proposition */
-  pushProposition(event : Proposition){
-    this.propositions.push(event);
+  pushProposition(event : Object){
+    this.wsSocket.messages.next(event);
   }
 
   /* Recherche proposition */

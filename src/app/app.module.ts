@@ -32,6 +32,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LeftSideComponent } from './components/home/left-side/left-side.component';
 import { RightSideComponent } from './components/home/right-side/right-side.component';
 import { CenterComponent } from './components/home/center/center.component';
+import {WebsocketService} from "./services/websocket/websocket.service";
 
 @NgModule({
   declarations: [
@@ -68,7 +69,7 @@ import { CenterComponent } from './components/home/center/center.component';
       apiKey: 'AIzaSyCXf5ZXZV197IxJYO1_mpIRQ2DgVYwDXwI'
     })
   ],
-  providers: [RestaurantService, SpinnerService, UserService],
+  providers: [RestaurantService, SpinnerService, UserService, WebsocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
