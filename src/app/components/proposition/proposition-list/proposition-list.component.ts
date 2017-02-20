@@ -89,6 +89,7 @@ export class PropositionListComponent implements OnInit {
 
   /* Recherche proposition */
   changeValue(value : string){
+    value === '' ? this.router.navigate(['propositions']) : null;
     this.searchInput = value;
   }
 

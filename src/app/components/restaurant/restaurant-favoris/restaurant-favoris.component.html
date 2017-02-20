@@ -1,10 +1,8 @@
-<restaurant-search (inputValue)="changeValue($event)" (checkboxValue)="updateCheckbox($event)"></restaurant-search>
-
-<div class="restaurant-list">
-  <h1> Restaurants </h1>
+<div class="restaurant-favoris">
+  <h1> Favoris </h1>
 
   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
-       *ngFor="let resto of restaurants | search:searchInput:specialitiesCheck" (click)="goToRestaurant(resto.id)">
+       *ngFor="let resto of restaurantFavoris" (click)="goToRestaurant(resto.id)">
     <div class="restaurant"
          [ngStyle]="{'background-image': 'url(' + getClassBySpeciality(resto.speciality) + ')'}">
 
@@ -15,10 +13,6 @@
           <p> {{resto.speciality}} </p>
         </div>
 
-        <div class="isFavoris" *ngIf="resto.favorite">
-          <img src="app/images/icons/favoris.png" alt="favoris">
-        </div>
-
         <div *ngIf="participation === resto.id" class="check-in">
           <img src="app/images/icons/valid.png"  alt="Restaurant validé" /><span> Bon appétit ! </span>
         </div>
@@ -26,8 +20,8 @@
     </div>
   </div>
 
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" *ngIf="!restaurants">
-    <h3> Il n'y a pas de restaurants disponibles ... </h3>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" *ngIf="!restaurantFavoris">
+    <h3> Vous n'avez pas encore de restaurants favoris ... </h3>
   </div>
 
 </div>

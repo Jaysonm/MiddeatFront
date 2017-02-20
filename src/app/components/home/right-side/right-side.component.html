@@ -32,8 +32,28 @@
   </div>
 
   <div class="router">
-    <button type="button" class="left-button">Favoris</button>
-    <button type="button" class="right-button">Groupes</button>
+    <button type="button" class="left-button" [ngClass]="{'active' : routing}" (click)="getFavoris()">Favoris</button>
+    <button type="button" class="right-button" [ngClass]="{'active' : !routing}" (click)="getGroupes()">Groupes</button>
+  </div>
+
+  <div class="resultRouter">
+    <div *ngIf="routing">
+      <div class="restaurant" (click)="goToRestaurant(restaurant.id)" *ngFor="let restaurant of restaurantsFavoris">
+        <h4> {{ restaurant.name }} </h4>
+
+        <p> {{ restaurant.rating | rating }} </p>
+      </div>
+      <div class="restaurant" *ngIf="!restaurantsFavoris">
+        <p>Vous n'avez pas encore de restaurant favoris...</p>
+      </div>
+    </div>
+    <div *ngIf="!routing">
+      <div class="groupe" *ngFor="let groupe of groupes">
+      </div>
+      <div class="groupe" *ngIf="!groupes">
+        <p>Vous n'avez pas encore de groupe...</p>
+      </div>
+    </div>
   </div>
 
 </div>

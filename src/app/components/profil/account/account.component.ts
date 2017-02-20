@@ -16,9 +16,8 @@ export class AccountComponent implements OnInit {
   ngOnInit() {
     this.spinnerService.start();
     this.userService.getPersonById(parseInt(localStorage.getItem("user"))).subscribe((res:User) => {
-      console.log(res);
       this.currentUser = res;
-        this.spinnerService.stop();
+      this.spinnerService.stop();
     });
   }
 

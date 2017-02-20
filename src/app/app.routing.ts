@@ -8,6 +8,7 @@ import {PropositionComponent} from "./components/proposition/proposition.compone
 import {PropositionListComponent} from "./components/proposition/proposition-list/proposition-list.component";
 import {RestaurantListComponent} from "./components/restaurant/restaurant-list/restaurant-list.component";
 import {HomeComponent} from "./components/home/home.component";
+import {RestaurantFavorisComponent} from "./components/restaurant/restaurant-favoris/restaurant-favoris.component";
 
 const appRoutes: Routes = [
   { path: 'home', component : HomeComponent },
@@ -15,7 +16,7 @@ const appRoutes: Routes = [
     {path : '', component: RestaurantListComponent},
     {path : ':id', component: RestaurantDetailComponent},
   ]},
-  { path: 'favori', component:  RestaurantListComponent},
+  { path: 'favori', component:  RestaurantFavorisComponent},
   { path: 'propositions', children : [
     {path : '', component: PropositionListComponent},
     {path : ':id', component: PropositionComponent},

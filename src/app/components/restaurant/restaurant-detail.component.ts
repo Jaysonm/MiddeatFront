@@ -7,12 +7,14 @@ import {GooglemapService} from "../../services/googlemap.service";
 import {SpinnerService} from "../../subjects/spinner.subject";
 import {Testimonial} from "../../models/Testimonial";
 import {Location} from "@angular/common";
+import {FavorisService} from "../../services/favoris.service";
+import {Favoris} from "../../models/Favoris";
 
 @Component({
   selector: 'restaurant-detail',
   templateUrl: 'restaurant-detail.component.html',
   styleUrls: ['restaurant-detail.component.scss'],
-  providers: [GooglemapService]
+  providers: [GooglemapService, FavorisService]
 })
 export class RestaurantDetailComponent implements OnInit, OnDestroy {
   public resto : Restaurant;
@@ -20,11 +22,15 @@ export class RestaurantDetailComponent implements OnInit, OnDestroy {
   public lng: number = 0;
   public index : number = 0;
   public testimonial : Testimonial;
-  public timer;
-  public currentIdResto : number;
+  public isFavoris : boolean;
+
+  private timer;
+  private currentIdResto : number;
+  private currentUser : number = parseInt(localStorage.getItem('user'));
+  private favoris : Favoris;
 
   constructor(private route : ActivatedRoute, private restoService : RestaurantService, private googlemap : GooglemapService,
-              private zone : NgZone, private spinner : SpinnerService, private location : Location) {}
+              private zone : NgZone, private spinner : SpinnerService, private location : Location, private favorisService : FavorisService) {}
 
   ngOnInit() {
     this.spinner.start();
@@ -50,6 +56,9 @@ export class RestaurantDetailComponent implements OnInit, OnDestroy {
           });
         })
       });
+
+      this.favoris = new Favoris(this.currentUser, this.currentIdResto);
+      this.favorisService.restaurantIsFavorite(this.favoris).subscribe(res => {res ? this.isFavoris = true : this.isFavoris  = false});
     }
   }
 
@@ -60,6 +69,16 @@ export class RestaurantDetailComponent implements OnInit, OnDestroy {
 
   goBack() : void{
     this.location.back();
+  }
+
+  addFavoris(){
+    this.isFavoris = true;
+    this.favorisService.addFavorite(this.favoris).subscribe();
+  }
+
+  removeFavoris(){
+    this.isFavoris = false;
+    this.favorisService.deleteFavorite(this.favoris).subscribe();
   }
 
   ngOnDestroy(){

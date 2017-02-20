@@ -1,4 +1,4 @@
-.restaurant-list{
+.restaurant-favoris{
   position:relative;z-index:5;text-align:center;font-family:'Lato', sans-serif;color:#1b3866;
   width:90%;margin:auto;
 
@@ -26,34 +26,16 @@
         img{width:30px;height:30px;}
       }
 
-      .isFavoris{
-        position:absolute;top:0;right:10px;
-
-        img{width:30px;height:30px;}
-      }
     }
   }
 }
 
 /* MOBILE */
 @media all and (max-width:500px){
-  .restaurant-list{
+  .restaurant-favoris{
     width:100%;
 
-    .restaurant{margin:5px 0;
-
-      .flex-resto{
-        .check-in{
-          position:relative;right:0;
-          img{width:25px;height:25px;}
-        }
-
-        .isFavoris{
-          right:0;
-          img{width:25px;height:25px;}
-        }
-      }
-    }
+    .restaurant{margin:5px 0;}
     .restaurant, .restaurant .background-opacity{border-radius:0;}
 
     & > div{

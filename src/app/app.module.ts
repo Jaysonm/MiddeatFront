@@ -33,6 +33,7 @@ import { LeftSideComponent } from './components/home/left-side/left-side.compone
 import { RightSideComponent } from './components/home/right-side/right-side.component';
 import { CenterComponent } from './components/home/center/center.component';
 import {WebsocketService} from "./services/websocket/websocket.service";
+import { RestaurantFavorisComponent } from './components/restaurant/restaurant-favoris/restaurant-favoris.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import {WebsocketService} from "./services/websocket/websocket.service";
     LeftSideComponent,
     RightSideComponent,
     CenterComponent,
+    RestaurantFavorisComponent,
   ],
   imports: [
     BrowserModule,

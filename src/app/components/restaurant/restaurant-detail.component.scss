@@ -20,7 +20,21 @@
     justify-content: center;align-items:center;text-align:center;
     flex-direction:column;
 
+    .favoris{
+      background:#fff;border-radius:20px;border:0;font-family:'Lato', sans-serif;padding:5px 15px;
+        color:#f5d327;font-weight:bold;box-shadow:5px 5px 10px rgba(0,0,0,0.5);transition:0.5s all;
+
+      &.add{color:#1b3866;}
+
+      &:hover{background:linear-gradient(to bottom right, #1b3866, #00aba4);color:#fff;}
+      &:focus{outline:0;}
+
+      img{width:30px;height:30px;}
+    }
+
     h1{font-family: 'Lato', sans-serif;margin-top:0;font-weight:bold;}
+    h4{margin-bottom:25px;}
+
     .detailsContact{
       display:flex;align-items:center;justify-content: center;
       flex-direction: row;width:80%;
@@ -36,7 +50,7 @@
 
 .description{
   display:flex;justify-content: center;align-items:center;
-  text-align:center;padding:40px;
+  text-align:center;padding:40px;background-color:#fff;
 
   h4, p{font-family: 'Lato', sans-serif;font-weight:bold;color:#1b3866;}
 

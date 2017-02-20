@@ -1,4 +1,3 @@
-import {User} from "./User";
 import {Testimonial} from "./Testimonial";
 import {MenuItem} from "./MenuItem";
 export class Restaurant{
@@ -14,8 +13,6 @@ export class Restaurant{
 
   public testimonials : Testimonial[];
   public menus : MenuItem[];
-  public noon : User[];
-  public visited : User[];
 
-  public eat : boolean;
+  public favorite : boolean;
 }

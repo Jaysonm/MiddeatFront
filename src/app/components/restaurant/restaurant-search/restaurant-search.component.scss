@@ -34,5 +34,13 @@
       width:100%
     }
   }
+}
 
+/* MOBILE */
+@media all and (max-width:500px){
+  .btn-search{
+    left:15px;
+
+    img{width:25px;height:25px;}
+  }
 }

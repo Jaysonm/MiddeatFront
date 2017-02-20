@@ -22,7 +22,6 @@ export class LeftSideComponent implements OnInit {
   ngOnInit() {
       this.spinnerService.start();
       this.propositionService.getOneById(this.idCurrentUser).subscribe((res : Proposition) => {
-        console.log(res);
         this.proposition = res;
         this.restaurantService.getOneById(res.restaurant.id).subscribe((resto : Restaurant) => {
           this.restaurant = resto;

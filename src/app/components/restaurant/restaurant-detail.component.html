@@ -8,6 +8,16 @@
 
       <h4>Spécialité : <i>{{ resto.speciality }}</i></h4>
 
+      <button class="favoris remove" (click)="removeFavoris()" *ngIf="isFavoris">
+        <img src="app/images/icons/favoris.png" alt="favoris" >
+        <span >Retirer des favoris</span>
+      </button>
+
+      <button class="favoris add" (click)="addFavoris()" *ngIf="!isFavoris">
+        <img src="app/images/icons/favoris.png" alt="favoris" >
+        <span>Ajouter en favori</span>
+      </button>
+
       <div class="detailsContact">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <p><img src="app/images/icons/localisation.png" /> {{ resto.position }} </p>

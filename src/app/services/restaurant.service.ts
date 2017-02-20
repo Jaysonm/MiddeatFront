@@ -16,6 +16,11 @@ export class RestaurantService {
       .map((res : Response) => res.json() as Restaurant[]);
   }
 
+  getAllWithFavoris(id : number) : Observable<Restaurant[]>{
+    return this.http.get(`${this.url}/user/${id}`)
+      .map((res : Response) => res.json() as Restaurant[]);
+  }
+
   getAllSpeciality() : Observable<Speciality[]> {
     return this.http.get(`${this.urlSpe}`)
       .map(res => res.json().data as Speciality[]);
