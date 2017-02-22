@@ -6,11 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public idCurrentUser : number = parseInt(localStorage.getItem("user"));
+  public idCurrentUser : number = parseInt(localStorage.getItem('user'));
+  public active : string = 'one';
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  activeMenu(setActive : string){
+    this.active = setActive;
   }
 
 }

@@ -1,9 +1,9 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Proposition} from "../../../models/Proposition";
-import {RestaurantService} from "../../../services/restaurant.service";
+import {RestaurantService} from "../../../services/components/restaurant.service";
 import {SpinnerService} from "../../../subjects/spinner.subject";
 import {Restaurant} from "../../../models/Restaurant";
-import {PropositionService} from "../../../services/proposition.service";
+import {PropositionService} from "../../../services/components/proposition.service";
 
 @Component({
   selector: 'left-side',

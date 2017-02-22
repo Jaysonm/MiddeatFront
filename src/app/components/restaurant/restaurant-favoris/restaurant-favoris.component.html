@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" *ngIf="!restaurantFavoris">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" *ngIf="!restaurantFavoris || restaurantFavoris.length === 0">
     <h3> Vous n'avez pas encore de restaurants favoris ... </h3>
   </div>
 

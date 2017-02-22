@@ -1,7 +1,7 @@
-<div class="menu" (click)="openMenu()" *ngIf="!isOpen">
+<div class="menu" (click)="openMenu()" *ngIf="!isOpen && isLogged">
   <img src="app/images/icons/categories.png" alt="menu"  />
 </div>
-<div class="menu" (click)="closeMenu()" *ngIf="isOpen">
+<div class="menu" (click)="closeMenu()" *ngIf="isOpen && isLogged">
   <img src="app/images/icons/close.png" alt="menu" />
 </div>
 
@@ -12,6 +12,7 @@
   <a routerLink="propositions">PROPOSITIONS</a>
   <a routerLink="groupes">GROUPES</a>
   <a routerLink="profil">MON COMPTE</a>
+  <a (click)="logout()">SE DECONNECTER</a>
 </div>
 
 <router-outlet></router-outlet>

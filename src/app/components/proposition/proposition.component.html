@@ -1,7 +1,10 @@
 <div class="back" (click)="goBack()"><img src="app/images/icons/back.png" alt="back" /></div>
 
 <div class="container proposition" *ngIf="proposition">
-  <img class="profil" src="{{ proposition.user_creator.profil }}" alt="profil-creator" />
+  <img class="profil" src="{{ proposition.user_creator.profil }}" *ngIf="proposition.user_creator.profil" alt="profil-creator" />
+  <div class="initial" *ngIf="!proposition.user_creator.profil" >
+    <h2> {{proposition.user_creator.firstname.charAt(0)}}{{proposition.user_creator.lastname.charAt(0) }}</h2>
+  </div>
 
   <div class="row row-proposition">
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 detail-creator">
@@ -43,7 +46,10 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
          *ngFor="let participant of proposition.participants | slice:0:5">
       <div class="participant">
-        <img src="{{participant.profil}}" alt="profil" />
+        <img src="{{participant.profil}}" *ngIf="participant.profil" alt="profil" />
+        <div class="initialParticipant" *ngIf="!participant.profil" >
+          <h4> {{participant.firstname.charAt(0)}}{{participant.lastname.charAt(0) }}</h4>
+        </div>
 
         <p> {{participant.firstname}} </p>
         <p> {{participant.lastname}} </p>
@@ -56,8 +62,4 @@
     </div>
   </div>
 
-</div>
-
-<div class="effect-background">
-  <div class="effect-circle"></div>
 </div>

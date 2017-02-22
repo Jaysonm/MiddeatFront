@@ -13,7 +13,10 @@
       <div class="detail">
         <div class="user">
           <div class="col-xs-3">
-            <img src="{{proposition.user_creator.profil}}" alt="profil_creator" />
+            <img src="{{proposition.user_creator.profil}}" *ngIf="proposition.user_creator.profil" alt="profil_creator" />
+            <div class="profil" *ngIf="!proposition.user_creator.profil" >
+              <h3> {{proposition.user_creator.firstname.charAt(0)}}{{proposition.user_creator.lastname.charAt(0) }}</h3>
+            </div>
           </div>
           <div class="col-xs-9">
             <h4>{{proposition.user_creator.firstname}} {{proposition.user_creator.lastname}}</h4>

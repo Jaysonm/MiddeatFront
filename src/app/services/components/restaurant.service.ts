@@ -1,15 +1,16 @@
 import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
-import {Restaurant} from "../models/Restaurant";
+import {Restaurant} from "../../models/Restaurant";
 import {Observable} from "rxjs";
-import {Speciality} from "../models/Speciality";
+import {Speciality} from "../../models/Speciality";
+import {HttpInterceptorService} from "../http-interceptor.service";
 
 @Injectable()
 export class RestaurantService {
-  private url = 'http://localhost:8180/back/restaurant';
+  private url = 'restaurant';
   private urlSpe = 'api/specialities';
 
-  constructor(private http : Http) { }
+  constructor(private http : HttpInterceptorService) { }
 
   getAll() : Observable<Restaurant[]>{
     return this.http.get(this.url)

@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import {Headers, RequestOptions, Http} from "@angular/http";
+import {RequestOptions, Headers} from "@angular/http";
 import {Observable} from "rxjs";
-import {Favoris} from "../models/Favoris";
-import {Restaurant} from "../models/Restaurant";
-import {User} from "../models/User";
+import {Favoris} from "../../models/Favoris";
+import {Restaurant} from "../../models/Restaurant";
+import {User} from "../../models/User";
+import {HttpInterceptorService} from "../http-interceptor.service";
 
 @Injectable()
 export class FavorisService {
-  private url = 'http://localhost:8180/back/favoris';
-  private headers = new Headers({ 'Content-Type': 'application/json' });
-  private options = new RequestOptions({ headers: this.headers });
+  private url = 'favoris';
+  private token = localStorage.getItem('token');
 
-  constructor(private http : Http) { }
+  constructor(private http : HttpInterceptorService) { }
 
   getFavorisForUser(id : number) : Observable<Restaurant[]> {
     return this.http.get(`${this.url}/user/${id}`)
@@ -33,11 +33,12 @@ export class FavorisService {
   }
 
   addFavorite(id : Favoris){
-    return this.http.post(`${this.url}`, {id}, this.options)
+    return this.http.post(`${this.url}`, {id})
   }
 
   deleteFavorite(id : Favoris){
-    let optionsDelete = new RequestOptions({headers : this.headers, body : id});
+    let headers = new Headers(new Headers({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.token}` }));
+    let optionsDelete = new RequestOptions({headers : headers, body : id});
     return this.http.delete(`${this.url}`, optionsDelete);
   }
 

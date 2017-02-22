@@ -1,31 +1,34 @@
-<div class="col-lg-3 col-md-3" *ngIf="currentUser">
+<div class="col-lg-3 col-md-3 col-xs-12" *ngIf="currentUser">
   <div class="home-right-side">
-    <img class="profil" src="{{ currentUser.profil }}" alt="profil-creator" />
+    <img class="profil" src="{{ currentUser.profil }}" *ngIf="currentUser.profil" alt="profil-creator" />
+    <div class="profil" *ngIf="!currentUser.profil" >
+      <h2> {{currentUser.firstname.charAt(0)}}{{currentUser.lastname.charAt(0) }}</h2>
+    </div>
 
     <div class="detail-user">
-      <h2> {{currentUser.firstname }} {{currentUser.lastname }}</h2>
+      <h2> {{currentUser.firstname}} {{currentUser.lastname }}</h2>
       <h3> {{currentUser.poste }} </h3>
       <p> {{currentUser.bu }} </p>
 
-      <div class="row">
-        <div class="col-xs-6 detail-group">
-          <img src="app/images/icons/contact.png" alt="icon-phone" />
-          <span> {{currentUser.phone}} </span>
+      <div class="row row_mobile">
+        <div class="col-sm-6 col-xs-12 detail-group left">
+          <p> {{currentUser.phone}} </p>
+          <img src="app/images/icons/contact2.png" alt="icon-phone" />
         </div>
-        <div class="col-xs-6 detail-group">
-          <img src="app/images/icons/mail2.png" alt="icon-mail" />
-          <span> {{currentUser.email}} </span>
+        <div class="col-sm-6 col-xs-12 detail-group right">
+          <img src="app/images/icons/mail.png" alt="icon-mail" />
+          <p> {{currentUser.email}} </p>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-xs-6 detail-group">
+      <div class="row row_mobile">
+        <div class="col-sm-6 col-xs-12 detail-group left">
+          <p> {{currentUser.address}} </p>
           <img src="app/images/icons/locate.png" alt="icon-phone" />
-          <span> {{currentUser.address}} </span>
         </div>
-        <div class="col-xs-6 detail-group">
-          <img src="app/images/icons/mail2.png" alt="icon-mail" />
-          <span> {{currentUser.cp}}, {{currentUser.city}} </span>
+        <div class="col-sm-6 col-xs-12 detail-group right">
+          <img src="app/images/icons/city.png" alt="icon-city" />
+          <p> {{currentUser.cp}}, {{currentUser.city}} </p>
         </div>
       </div>
     </div>
@@ -43,14 +46,14 @@
 
         <p> {{ restaurant.rating | rating }} </p>
       </div>
-      <div class="restaurant" *ngIf="!restaurantsFavoris">
+      <div class="restaurant" *ngIf="!restaurantsFavoris || restaurantsFavoris.length === 0">
         <p>Vous n'avez pas encore de restaurant favoris...</p>
       </div>
     </div>
     <div *ngIf="!routing">
       <div class="groupe" *ngFor="let groupe of groupes">
       </div>
-      <div class="groupe" *ngIf="!groupes">
+      <div class="groupe" *ngIf="!groupes || groupes.length === 0">
         <p>Vous n'avez pas encore de groupe...</p>
       </div>
     </div>

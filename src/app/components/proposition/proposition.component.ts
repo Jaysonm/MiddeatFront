@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Proposition} from "../../models/Proposition";
-import {PropositionService} from "../../services/proposition.service";
+import {PropositionService} from "../../services/components/proposition.service";
 import {ActivatedRoute} from "@angular/router";
 import {SpinnerService} from "../../subjects/spinner.subject";
 import {SpecialityImgPipe} from "../../pipes/speciality-img.pipe";

@@ -11,6 +11,10 @@
 
       .user{display:flex;align-items:center;justify-content:center;}
       img{width:45px;height:45px;border-radius:50%;}
+
+      .profil{border-radius:50%;width:45px;height:45px;background-color:#1b3866;color:#fff;margin:auto;border:2px solid #fff;
+        h3{line-height:45px;margin:0;}
+      }
     }
 
     .bandeau{width:20%;background-color:#1b3866;color:#ffffff;border-radius:0 10px 10px 0;
@@ -43,5 +47,12 @@
 
   &:focus, &:active, &:visited{
     outline:0;
+  }
+}
+
+/* MOBILE */
+@media all and (min-width:500px) and (max-width:767px) {
+  .proposition-list{
+    width:80%
   }
 }

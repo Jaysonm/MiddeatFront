@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {UserService} from "../../../services/user.service";
+import {UserService} from "../../../services/components/user.service";
 import {User} from "../../../models/User";
-import {FavorisService} from "../../../services/favoris.service";
+import {FavorisService} from "../../../services/components/favoris.service";
 import {Restaurant} from "../../../models/Restaurant";
 import {Router} from "@angular/router";
 
@@ -23,7 +23,7 @@ export class RightSideComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getPersonById(this.idCurrentUser).subscribe(res => this.currentUser = res);
-    this.favorisService.getFavorisForUser(this.idCurrentUser).subscribe(res => {this.restaurantsFavoris = res;console.log(this.restaurantsFavoris)});
+    this.favorisService.getFavorisForUser(this.idCurrentUser).subscribe(res => this.restaurantsFavoris = res);
   }
 
   getFavoris() : void{

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {SpinnerService} from "../../../subjects/spinner.subject";
-import {FavorisService} from "../../../services/favoris.service";
+import {FavorisService} from "../../../services/components/favoris.service";
 import {SpecialityImgPipe} from "../../../pipes/speciality-img.pipe";
 import {Restaurant} from "../../../models/Restaurant";
-import {ParticipantService} from "../../../services/participant.service";
+import {ParticipantService} from "../../../services/components/participant.service";
 
 @Component({
   selector: 'restaurant-favoris',

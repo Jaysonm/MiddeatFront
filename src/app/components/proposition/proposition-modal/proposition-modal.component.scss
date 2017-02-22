@@ -26,3 +26,17 @@
   }
 }
 
+/* MOBILE */
+@media all and (max-width:500px){
+  .btn-proposition{
+    right:15px;
+
+    img{width:25px;height:25px;}
+  }
+}
+
+@media all and (max-width:768px){
+  .modal-dialog{
+    top:50%;transform: translate(0,-50%)!important;
+  }
+}

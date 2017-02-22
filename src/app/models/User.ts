@@ -3,6 +3,9 @@ export class User{
   public firstname : string;
   public lastname : string;
 
+  public token : string;
+  public password : string;
+
   public email : string;
   public phone : string;
 

@@ -33,3 +33,10 @@
     font-weight:bold;text-decoration:none;
   }
 }
+
+/* MOBILE */
+@media all and (min-width:600px) and (max-width:800px) {
+  .profil{
+    width:90%
+  }
+}

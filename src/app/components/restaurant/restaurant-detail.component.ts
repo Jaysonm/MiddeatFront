@@ -1,13 +1,13 @@
 import {Component, OnInit, NgZone, OnDestroy} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {RestaurantService} from "../../services/restaurant.service";
+import {RestaurantService} from "../../services/components/restaurant.service";
 import {Restaurant} from "../../models/Restaurant";
 import {SpecialityImgPipe} from "../../pipes/speciality-img.pipe";
 import {GooglemapService} from "../../services/googlemap.service";
 import {SpinnerService} from "../../subjects/spinner.subject";
 import {Testimonial} from "../../models/Testimonial";
 import {Location} from "@angular/common";
-import {FavorisService} from "../../services/favoris.service";
+import {FavorisService} from "../../services/components/favoris.service";
 import {Favoris} from "../../models/Favoris";
 
 @Component({

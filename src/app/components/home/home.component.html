@@ -6,3 +6,15 @@
   <right-side [idCurrentUser]="idCurrentUser"></right-side>
 </div>
 
+<div class="mobile_home">
+  <div class="menu">
+    <div (click)="activeMenu('one')"><img src="app/images/icons/eat.png"></div>
+    <div (click)="activeMenu('two')"><img src="app/images/icons/actus.png"></div>
+    <div (click)="activeMenu('three')"><img src="app/images/icons/user2.png"></div>
+  </div>
+
+  <left-side *ngIf="active === 'one'" [idCurrentUser]="idCurrentUser"></left-side>
+  <center-side *ngIf="active === 'two'"></center-side>
+  <right-side *ngIf="active === 'three'" [idCurrentUser]="idCurrentUser"></right-side>
+</div>
+

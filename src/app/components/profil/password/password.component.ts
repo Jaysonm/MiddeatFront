@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../../../services/components/user.service";
 
 @Component({
   selector: 'password',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./password.component.scss']
 })
 export class PasswordComponent implements OnInit {
+  private idUser = parseInt(localStorage.getItem('user'));
+  public object : Object = new Object();
 
-  constructor() { }
+  public hide : boolean = true;
+  constructor(private userService : UserService) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  updatePassword(object : Object){
+    this.userService.updatePassword(this.idUser, object).subscribe(() => {
+      this.object = new Object();this.hide = false;
+    });
+    setTimeout(() => {
+      this.hide = true;
+    }, 4000);
   }
 
 }

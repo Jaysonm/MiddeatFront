@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input} from '@angular/core';
 import {Restaurant} from "../../../models/Restaurant";
-import {RestaurantService} from "../../../services/restaurant.service";
+import {RestaurantService} from "../../../services/components/restaurant.service";
 
 @Component({
   selector: 'proposition-search',

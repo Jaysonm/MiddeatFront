@@ -2,13 +2,18 @@
   text-align:center;font-family:'Lato', sans-serif;background-color:#fff;border-radius:15px 15px 0 0;padding:10px;
   box-shadow:5px 5px 10px rgba(0,0,0,0.4);
 
-  .profil{border-radius:50%;width:80px;height:80px;}
+  .profil{border-radius:50%;width:80px;height:80px;background-color:#1b3866;color:#fff;margin:auto;
+    h2{line-height:80px;}
+  }
   .detail-user{
 
     .detail-group{
-      display:flex;align-items: center;justify-content: center;
+      display:flex;align-items: center;
 
-      img{width:40px;height:40px;}
+      &.left{justify-content:flex-end;}
+      &.right{justify-content:flex-start;}
+
+      img{width:40px;height:40px;margin:0 10px;}
     }
     span{font-size:14px;}
   }
@@ -16,7 +21,7 @@
 
 .router{
   font-family:'Lato', sans-serif;background-color:#fff;display:flex;padding-bottom:10px;
-  border-top:1px solid rgba(27, 56, 102,0.2);position:relative;
+  border-top:1px solid rgba(27, 56, 102,0.2);position:relative;z-index:5;box-shadow:5px 5px 10px rgba(0, 0, 0, 0.4);
   button{
     width:50%;background-color:#fff;color:#1b3866;padding:10px;border:0;border-bottom:1px solid rgba(0,0,0,0.3);
 
@@ -28,16 +33,36 @@
 
 .resultRouter{
   font-family:'Lato', sans-serif;background-color:#fff;box-shadow:5px 5px 10px rgba(0,0,0,0.4);
-  border-radius:0 0 15px 15px;
+  border-radius:0 0 15px 15px;position:relative;z-index:6;
 
   h4{margin-top:0;padding:0;}
 
   .restaurant{
-    display:flex;align-items:center;justify-content:space-between;margin:0 20px 20px;cursor:pointer;
-    border-bottom:1px solid rgba(0,0,0,0.3)
+    display:flex;align-items:center;justify-content:space-between;padding:5px 20px;margin:0 20px 20px;cursor:pointer;
+    &:not(:last-child){border-bottom:1px solid rgba(0,0,0,0.3)}
   }
 
   .groupe{
-    display:flex;align-items:center;justify-content:space-between;padding:5px 20px;
+    display:flex;align-items:center;justify-content:space-between;padding:5px 20px;margin:0 20px 20px;cursor:pointer;
+    &:not(:last-child){border-bottom:1px solid rgba(0,0,0,0.3)}
+  }
+}
+
+@media all and (max-width:767px) {
+  .home-right-side, .router, .resultRouter{
+    box-shadow:0 0 0;
+  }
+
+  .row_mobile{display:flex;align-items:center;flex-direction:column;
+
+    .detail-group{
+      flex-direction:column;
+
+      &.left{flex-direction:column-reverse;}
+    }
+  }
+
+  .resultRouter{
+    .restaurant{margin:0 0 20px;}
   }
 }

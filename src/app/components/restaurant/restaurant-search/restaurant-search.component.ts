@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild, Output, EventEmitter} from '@angular/core';
 import {Speciality} from "../../../models/Speciality";
-import {RestaurantService} from "../../../services/restaurant.service";
+import {RestaurantService} from "../../../services/components/restaurant.service";
 
 @Component({
   selector: 'restaurant-search',

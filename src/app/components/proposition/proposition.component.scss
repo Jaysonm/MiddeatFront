@@ -10,7 +10,15 @@
   position:relative;z-index:5;text-align:center;font-family:'Lato', sans-serif;color:#1b3866;
 
   .profil{border-radius:50%;width:100px;height:100px;position:relative;z-index:4;
-    top:20px;border:5px solid #fff;right:23%;transform:translate(23%,0);}
+    top:20px;border:5px solid #fff;right:23%;transform:translate(23%,0);
+  }
+
+  .initial{
+    background-color:#1b3866;color:#fff;border-radius:50%;width:100px;height:100px;position:relative;z-index:4;
+    top:20px;border:5px solid #fff;left:23%;transform:translate(-23%,0);
+
+    h2{line-height:50px;}
+  }
 
   .row-proposition{display:flex;align-items: stretch;
     .detail-creator{
@@ -22,7 +30,7 @@
         }
 
         .detail-group{
-          display:flex;align-items:center;justify-items: center;flex-direction:column;
+          display:flex;align-items:center;justify-items:center;flex-direction:column;
 
           img{width:40px;height:40px;}
           span{font-size:16px;}
@@ -62,6 +70,10 @@
     .participant{
       display:flex;align-items:center;padding:15px 0;
 
+      .initialParticipant{border-radius:50%;width:40px;height:40px;background-color:#1b3866;color:#fff;margin:auto;border:2px solid #fff;
+        h4{line-height:40px;margin:0;}
+      }
+
       &::after{content:"";background-color:rgba(0,0,0,0.1);height:1px;width:100%;
         position:absolute;left:50%;bottom:0;transform:translate(-50%,0);display:block;}
 
@@ -72,6 +84,14 @@
 }
 
 /* Mobile */
+@media all and (max-width:500px){
+  .back{
+    left:15px;padding:5px;
+
+    img{width:25px;height:25px;}
+  }
+}
+
 @media all and (max-width:767px) {
   .override{
     padding:15px;
@@ -82,6 +102,10 @@
       width:100%;flex-direction:column;
       p{width:100%!important;}
     }
+  }
+
+  .back{
+    img{width:25px;height:25px;}
   }
 }
 
@@ -94,6 +118,11 @@
     .profil {
       width: 80px;height: 80px;top:30px;left:0;right:0;transform: translate(0, 0);
     }
+    .initial {
+      width: 80px;height: 80px;top:30px;left:0;right:0;transform: translate(0, 0);
+      h2{line-height:40px;}
+    }
+
     .row-proposition {
       flex-direction: column;padding:15px;
 
@@ -127,10 +156,22 @@
   }
 }
 
-@media all and (min-width:992px) and (max-width:1200px) {
-  .detail-creator{padding-left:0;}
-
-  .effect-circle{
-    height:98vh!important;border-radius:0!important;
+@media all and (min-width:992px) and (max-width:1199px) {
+  .proposition {
+    .row-proposition {
+      .detail-creator {
+        padding-left: 0;
+        .caracteristique-creator {
+          &::after {
+            border-width: 101px;left:99.6%;
+          }
+        }
+      }
+      .detail-restaurant {
+        &::before {
+          border-width: 101px;left:-0.4%;
+        }
+      }
+    }
   }
 }

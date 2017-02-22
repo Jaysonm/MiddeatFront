@@ -1,0 +1,35 @@
+.authentication{
+  position:relative;z-index:5;text-align:center;font-family:'Lato', sans-serif;color:#1b3866;
+
+  ul{
+    padding-left:0;
+    li{display:inline-block;position:relative;padding:5px;
+      &:after {
+        content: '';
+        display: block;
+        margin: auto;
+        height: 3px;
+        width: 0;
+        background: transparent;
+        transition: width .5s ease, background-color .5s ease;
+      }
+      &:hover, &:focus, &:active{
+        text-decoration:none;
+
+        &:after{
+          width:100%;background-color:#00aba4;
+        }
+      }
+
+      a{font-size:18px;color:#1b3866;width:0;
+        &:hover{
+          text-decoration:none;
+        }
+      }
+    }
+  }
+
+  .active{
+    font-weight:bold;text-decoration:none;
+  }
+}

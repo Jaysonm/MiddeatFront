@@ -14,3 +14,9 @@
   50% {transform:scale(1.0);}
   100% {transform:scale(0.0);}
 }
+
+@media all and (max-width:500px){
+  .spinner{
+    > img{width:30px;height:30px;}
+  }
+}

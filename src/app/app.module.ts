@@ -1,11 +1,11 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {FormsModule} from "@angular/forms";
-import {HttpModule} from "@angular/http";
+import {HttpModule, XHRBackend, RequestOptions} from "@angular/http";
 import {AppComponent} from "./app.component";
 import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemRestaurantsService} from "./bdd/restaurants";
-import {RestaurantService} from "./services/restaurant.service";
+import {RestaurantService} from "./services/components/restaurant.service";
 import 'assets/rxjs-extensions';
 import { RestaurantListComponent } from './components/restaurant/restaurant-list/restaurant-list.component';
 import { SearchPipe } from './pipes/search.pipe';
@@ -22,7 +22,7 @@ import { AccountComponent } from './components/profil/account/account.component'
 import { PasswordComponent } from './components/profil/password/password.component';
 import { PropositionComponent } from './components/proposition/proposition.component';
 import { PropositionListComponent } from './components/proposition/proposition-list/proposition-list.component';
-import {UserService} from "./services/user.service";
+import {UserService} from "./services/components/user.service";
 import {AppNgbootstrapModule} from "./app.ngboostrap";
 import { PropositionSearchComponent } from './components/proposition/proposition-search/proposition-search.component';
 import { SearchPropPipe } from './pipes/search-prop.pipe';
@@ -34,6 +34,15 @@ import { RightSideComponent } from './components/home/right-side/right-side.comp
 import { CenterComponent } from './components/home/center/center.component';
 import {WebsocketService} from "./services/websocket/websocket.service";
 import { RestaurantFavorisComponent } from './components/restaurant/restaurant-favoris/restaurant-favoris.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { SigninComponent } from './components/authentication/signin/signin.component';
+import { SignupComponent } from './components/authentication/signup/signup.component';
+import {AuthenticationService} from "./services/components/authentication.service";
+import {AuthGuardService} from "./services/auth-guard.service";
+import {LoggedService} from "./subjects/logged.subject";
+import {HttpInterceptorService} from "./services/http-interceptor.service";
+import {Router} from "@angular/router";
+import { EditComponent } from './components/profil/account/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +68,10 @@ import { RestaurantFavorisComponent } from './components/restaurant/restaurant-f
     RightSideComponent,
     CenterComponent,
     RestaurantFavorisComponent,
+    AuthenticationComponent,
+    SigninComponent,
+    SignupComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +84,16 @@ import { RestaurantFavorisComponent } from './components/restaurant/restaurant-f
       apiKey: 'AIzaSyCXf5ZXZV197IxJYO1_mpIRQ2DgVYwDXwI'
     })
   ],
-  providers: [RestaurantService, SpinnerService, UserService, WebsocketService],
+  providers: [RestaurantService, SpinnerService, UserService, WebsocketService, AuthenticationService, AuthGuardService, LoggedService,
+    {
+      provide: HttpInterceptorService,
+      useFactory: httpFactory,
+      deps: [XHRBackend, RequestOptions, Router ]
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+
+export function httpFactory(backend: XHRBackend, defaultOptions: RequestOptions) {
+  return new HttpInterceptorService(backend, defaultOptions);
+}

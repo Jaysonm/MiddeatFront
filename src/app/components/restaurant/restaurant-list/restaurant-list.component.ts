@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {RestaurantService} from "../../../services/restaurant.service";
+import {RestaurantService} from "../../../services/components/restaurant.service";
 import {Restaurant} from "../../../models/Restaurant";
 import {Router} from "@angular/router";
 import {SpecialityImgPipe} from "../../../pipes/speciality-img.pipe";
 import {SpinnerService} from "../../../subjects/spinner.subject";
-import {ParticipantService} from "../../../services/participant.service";
-import {FavorisService} from "../../../services/favoris.service";
+import {ParticipantService} from "../../../services/components/participant.service";
+import {FavorisService} from "../../../services/components/favoris.service";
 
 @Component({
   selector: 'restaurant-list',

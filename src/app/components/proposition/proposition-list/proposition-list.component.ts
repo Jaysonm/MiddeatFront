@@ -1,12 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Proposition} from "../../../models/Proposition";
-import {PropositionService} from "../../../services/proposition.service";
+import {PropositionService} from "../../../services/components/proposition.service";
 import {Router, ActivatedRoute} from "@angular/router";
 import {SpinnerService} from "../../../subjects/spinner.subject";
-import {UserService} from "../../../services/user.service";
 import {Participant} from "../../../models/Participant";
-import {ParticipantService} from "../../../services/participant.service";
-import {WebsocketService} from "../../../services/websocket/websocket.service";
+import {ParticipantService} from "../../../services/components/participant.service";
 import {WsPropositionService} from "../../../services/websocket/ws-proposition.service";
 
 @Component({
@@ -17,7 +15,7 @@ import {WsPropositionService} from "../../../services/websocket/ws-proposition.s
 })
 export class PropositionListComponent implements OnInit {
   public propositions : Proposition[];
-  public currentUser : number = parseInt(localStorage.getItem("user"));
+  public currentUser : number = parseInt(localStorage.getItem('user'));
   public currentProposition : number;
 
   private participant : Participant = new Participant();

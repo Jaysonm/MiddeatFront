@@ -1,5 +1,5 @@
-<div class="account" *ngIf="currentUser">
-  <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-12">
+<div class="account" *ngIf="currentUser && !isEdited">
+  <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-1 col-sm-10 col-xs-12">
     <div class="section-info">
       <div class="section-group mobile-group">
         <img src="app/images/icons/user.png" alt="prenom-nom" />
@@ -42,7 +42,9 @@
         </div>
       </div>
 
-      <button> Editer son profil </button>
+      <button (click)="goToEdit()"> Editer son profil </button>
     </div>
   </div>
 </div>
+
+<edit *ngIf="isEdited" [currentUser]="currentUser" (editUser)="wasEdited();"></edit>

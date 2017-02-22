@@ -1,7 +1,7 @@
 import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import {Proposition} from "../../../models/Proposition";
-import {PropositionService} from "../../../services/proposition.service";
-import {RestaurantService} from "../../../services/restaurant.service";
+import {PropositionService} from "../../../services/components/proposition.service";
+import {RestaurantService} from "../../../services/components/restaurant.service";
 import {Restaurant} from "../../../models/Restaurant";
 import {WebsocketService} from "../../../services/websocket/websocket.service";
 import {WsPropositionService} from "../../../services/websocket/ws-proposition.service";

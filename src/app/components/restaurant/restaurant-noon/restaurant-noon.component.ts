@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {UserService} from "../../../services/user.service";
+import {UserService} from "../../../services/components/user.service";
 import {User} from "../../../models/User";
-import {ParticipantService} from "../../../services/participant.service";
+import {ParticipantService} from "../../../services/components/participant.service";
 import {Router, NavigationExtras} from "@angular/router";
 
 @Component({
@@ -18,7 +18,8 @@ export class RestaurantNoonComponent implements OnInit {
   constructor(private participantService : ParticipantService, private router : Router) { }
 
   ngOnInit() {
-    this.participantService.getParticipantForOneRestaurant(this.currentId).subscribe(res => this.personsNoon = res)
+    this.participantService.getParticipantForOneRestaurant(this.currentId).subscribe(res => this.personsNoon = res);
+    this.participantService.getOldParticipantForOneRestaurant(this.currentId).subscribe(res => this.personsAte = res);
   }
 
   signUp() : void{
