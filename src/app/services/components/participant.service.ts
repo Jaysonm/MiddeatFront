@@ -7,7 +7,7 @@ import {HttpInterceptorService} from "../http-interceptor.service";
 
 @Injectable()
 export class ParticipantService {
-  private url = 'participant';
+  private url = 'participants';
 
   constructor(private http : HttpInterceptorService) { }
 

@@ -19,5 +19,9 @@
 
       <button type="button" (click)="signIn()"> Valider </button>
     </form>
+
+    <div class="error" *ngIf="error">
+      <img src="app/images/icons/warning.png" alt="warning"> <p> {{ error }} </p>
+    </div>
   </div>
 </div>

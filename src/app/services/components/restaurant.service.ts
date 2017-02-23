@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, Response} from "@angular/http";
+import {Response} from "@angular/http";
 import {Restaurant} from "../../models/Restaurant";
 import {Observable} from "rxjs";
 import {Speciality} from "../../models/Speciality";
@@ -7,7 +7,7 @@ import {HttpInterceptorService} from "../http-interceptor.service";
 
 @Injectable()
 export class RestaurantService {
-  private url = 'restaurant';
+  private url = 'restaurants';
   private urlSpe = 'api/specialities';
 
   constructor(private http : HttpInterceptorService) { }

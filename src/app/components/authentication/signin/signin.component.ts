@@ -11,18 +11,23 @@ import {Router} from "@angular/router";
 })
 export class SigninComponent implements OnInit {
   public user : User = new User();
+  public error : string = '';
 
   constructor(private authencationService : AuthenticationService, private router : Router) { }
 
   ngOnInit() {}
 
   signIn(){
-    this.authencationService.signIn(this.user).subscribe(res => {
+    this.authencationService.signIn(this.user).subscribe(
+      res => {
       localStorage.setItem('user', res.id.toString());
       localStorage.setItem('token', res.token.toString());
 
       this.router.navigate(['home']);
-    });
+    }, err => {
+        console.log(err);
+        err.status === 404 ? this.error = err.json().message : this.error = '';
+      });
   }
 
 }

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {Http, Response, Headers, RequestOptions} from "@angular/http";
-import {Observable, Subject} from "rxjs";
+import {Response} from "@angular/http";
+import {Observable} from "rxjs";
 import {Proposition} from "../../models/Proposition";
 import {HttpInterceptorService} from "../http-interceptor.service";
 
 @Injectable()
 export class PropositionService {
-  private url = 'proposition';
+  private url = 'propositions';
 
   constructor(private http : HttpInterceptorService) {}
 

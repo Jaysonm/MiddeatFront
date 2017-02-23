@@ -19,3 +19,10 @@
 
   button{width:100%;padding:10px;background-color:#1b3866;color:#fff;border-radius:15px;margin-top:20px;}
 }
+
+.error{position:relative;left:50%;margin-top:15px;font-family:'Lato', sans-serif;z-index:999;transform:translate(-50%,0);
+  background-color:#c80000;color:#fff;border-radius:15px;padding:10px;display:flex;align-items:center;justify-content:center;
+
+  img{width:30px;height:30px;margin-right:15px;}
+  p{margin:0;}
+}
