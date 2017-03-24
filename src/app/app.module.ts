@@ -1,6 +1,6 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpModule, XHRBackend, RequestOptions} from "@angular/http";
 import {AppComponent} from "./app.component";
 import {InMemoryWebApiModule} from "angular-in-memory-web-api";
@@ -43,6 +43,7 @@ import {LoggedService} from "./subjects/logged.subject";
 import {HttpInterceptorService} from "./services/http-interceptor.service";
 import {Router} from "@angular/router";
 import { EditComponent } from './components/profil/account/edit/edit.component';
+import {EqualValidator} from './directives/equalValidator.directive';
 
 @NgModule({
   declarations: [
@@ -72,10 +73,12 @@ import { EditComponent } from './components/profil/account/edit/edit.component';
     SigninComponent,
     SignupComponent,
     EditComponent,
+    EqualValidator,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
     AppNgbootstrapModule,

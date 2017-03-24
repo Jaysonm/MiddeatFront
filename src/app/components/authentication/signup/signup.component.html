@@ -1,14 +1,18 @@
 <div class="signup">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <form name="signup">
+    <form name="signup" [formGroup]="myForm" (ngSubmit)="signUp(myForm.value)">
 
       <div class="col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-4 col-sm-6 col-xs-12">
         <h2> Champs obligatoires </h2>
+
         <div class="form-group">
           <label for="email">Email</label>
           <div class="input-group">
             <div class="input-group-addon"><img src="app/images/icons/mail2.png" alt="email"/></div>
-            <input type="text" class="form-control" id="email" name="email" [(ngModel)]="user.email" />
+            <input formControlName="email" type="text" class="form-control" id="email" name="email" />
+          </div>
+          <div class="inform error" *ngIf="myForm.get('email').hasError('invalidEmailAddress') && myForm.controls['email'].touched">
+            Votre email n'est pas valide
           </div>
         </div>
 
@@ -16,7 +20,18 @@
           <label for="password">Mot de passe</label>
           <div class="input-group">
             <div class="input-group-addon"><img src="app/images/icons/newpw.png" alt="pw"/></div>
-            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" />
+            <input type="password" formControlName="password" class="form-control" id="password" name="password" #pwStrength
+                   validateEqual="password2" reverse="true" />
+          </div>
+
+          <div class="inform error" *ngIf="myForm.get('password').hasError('required') && myForm.controls['password'].touched">
+            Votre mot de passe est requis
+          </div>
+          <div class="inform strength" *ngIf="!myForm.get('password').hasError('required')">
+            <div class="pwStrength"
+                 [ngStyle]="{'width': passwordStrength() + '%', 'background-color' : colorPassword(passwordStrength())}">
+            </div>
+            <span>Force de votre mot de passe</span>
           </div>
         </div>
 
@@ -24,7 +39,17 @@
           <label for="newPassword2">Re-tapez mot de passe</label>
           <div class="input-group">
             <div class="input-group-addon"><img src="app/images/icons/checkpw.png" alt="checkpw"/></div>
-            <input type="password" class="form-control" id="newPassword2" name="newPassword2" />
+            <input type="password" formControlName="password2" class="form-control" id="newPassword2" name="newPassword2" validateEqual="password"/>
+          </div>
+          <div class="inform error" *ngIf="myForm.get('password2').hasError('required') && myForm.controls['password2'].touched">
+            Vous devez check vos mots de passe
+          </div>
+          <div class="inform error" *ngIf="myForm.get('password2').hasError('misMatched') && !myForm.get('password2').hasError('required')">
+            Le mot de passe n'est pas identique
+          </div>
+          <div class="inform valid" *ngIf="!myForm.get('password2').hasError('misMatched') && !myForm.get('password2').hasError('required')
+          && myForm.controls['password'].touched">
+            Le mot de passe est identique
           </div>
         </div>
 
@@ -34,7 +59,10 @@
           <label for="firstname">Prénom</label>
           <div class="input-group">
             <div class="input-group-addon"><img src="app/images/icons/user2.png" alt="name"/></div>
-            <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="user.firstname" />
+            <input type="text" formControlName="firstname" class="form-control" id="firstname" name="firstname" />
+          </div>
+          <div class="inform error" *ngIf="myForm.get('firstname').hasError('required') && myForm.controls['firstname'].touched">
+            Votre prénom est requis
           </div>
         </div>
 
@@ -42,7 +70,10 @@
           <label for="lastname">Nom</label>
           <div class="input-group">
             <div class="input-group-addon"><img src="app/images/icons/user2.png" alt="name"/></div>
-            <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="user.lastname" />
+            <input type="text" formControlName="lastname" class="form-control" id="lastname" name="lastname" />
+          </div>
+          <div class="inform error" *ngIf="myForm.get('lastname').hasError('required') && myForm.controls['lastname'].touched">
+            Votre nom est requis
           </div>
         </div>
       </div>
@@ -54,7 +85,7 @@
           <label for="address">Adresse</label>
           <div class="input-group">
             <div class="input-group-addon"><img src="app/images/icons/locate2.png" alt="address"/></div>
-            <input type="text" class="form-control" id="address" name="address" [(ngModel)]="user.address" />
+            <input type="text" class="form-control" id="address" name="address" />
           </div>
         </div>
 
@@ -62,7 +93,7 @@
           <label for="city">Ville</label>
           <div class="input-group">
             <div class="input-group-addon"><img src="app/images/icons/city2.png" alt="city"/></div>
-            <input type="text" class="form-control" id="city" name="city" [(ngModel)]="user.city" />
+            <input type="text" class="form-control" id="city" name="city" />
           </div>
         </div>
 
@@ -70,7 +101,7 @@
           <label for="cp">Code postal</label>
           <div class="input-group">
             <div class="input-group-addon"><img src="app/images/icons/city2.png" alt="cp"/></div>
-            <input type="text" class="form-control" id="cp" name="cp" [(ngModel)]="user.cp" />
+            <input type="text" class="form-control" id="cp" name="cp" />
           </div>
         </div>
 
@@ -80,7 +111,7 @@
           <label for="phone">Téléphone</label>
           <div class="input-group">
             <div class="input-group-addon"><img src="app/images/icons/contact.png" alt="phone"/></div>
-            <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="user.phone" />
+            <input type="text" class="form-control" id="phone" name="phone" />
           </div>
         </div>
 
@@ -88,7 +119,7 @@
           <label for="bu">BU</label>
           <div class="input-group">
             <div class="input-group-addon"><img src="app/images/icons/business2.png" alt="bu"/></div>
-            <input type="text" class="form-control" id="bu" name="bu" [(ngModel)]="user.bu" />
+            <input type="text" class="form-control" id="bu" name="bu" />
           </div>
         </div>
 
@@ -96,13 +127,13 @@
           <label for="poste">Poste</label>
           <div class="input-group">
             <div class="input-group-addon"><img src="app/images/icons/group2.png" alt="poste"/></div>
-            <input type="text" class="form-control" id="poste" name="poste" [(ngModel)]="user.poste" />
+            <input type="text" class="form-control" id="poste" name="poste" />
           </div>
         </div>
       </div>
 
       <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12">
-        <button type="button" (click)="signUp()"> Valider </button>
+        <button type="submit" [disabled]="myForm.invalid"> Valider </button>
       </div>
     </form>
   </div>
